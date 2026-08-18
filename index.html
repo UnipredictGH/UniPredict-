@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UniPredict Ghana — Predict. Match. Achieve.</title>
+<meta name="description" content="Ghana's #1 university admission eligibility platform."/>
+<meta name="color-scheme" content="light only"/>
+<meta name="supported-color-schemes" content="light"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8KHXSQW5TK" onerror="void(0)"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-8KHXSQW5TK");</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light only}
+@media(prefers-color-scheme:dark){html,body{background:#F0EFFE!important;color:#1a1a2e!important}}
+body{font-family:"Inter",sans-serif;background:#F0EFFE!important;color:#1a1a2e!important;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.ann{background:linear-gradient(135deg,#7C3AED,#EC4899);padding:10px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ann-t{font-size:13px;font-weight:600;color:#fff;flex:1;line-height:1.4}
+.ann-l{font-size:11px;color:rgba(255,255,255,.9);font-weight:700;text-decoration:underline;cursor:pointer;white-space:nowrap}
+.nav{position:sticky;top:0;z-index:300;background:#ffffff!important;border-bottom:1px solid rgba(124,58,237,.12);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-shadow:0 1px 12px rgba(124,58,237,.07)}
+.nlogo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.nlogo-box{width:36px;height:36px;background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.nlogo-txt{font-family:"Outfit",sans-serif;font-weight:900;font-size:20px;color:#1a1a2e}
+.nlogo-txt b{background:linear-gradient(135deg,#7C3AED,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline}
+.nlinks{display:flex;gap:2px}
+.nlinks a{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:500;color:#4a4a6a;cursor:pointer;transition:all .15s}
+.nlinks a:hover{color:#7C3AED;background:rgba(124,58,237,.08);font-weight:600}
+.nbtns{display:flex;gap:8px;align-items:center}
+.ham{display:none;background:none;border:none;font-size:25px;color:#1a1a2e;padding:4px;cursor:pointer}
+@media(max-width:768px){.nlinks,.nbtns{display:none}.ham{display:block}}
+.mmenu{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:rgba(240,239,254,.98);backdrop-filter:blur(20px);z-index:299;overflow-y:auto;padding-bottom:100px}
+.mmenu.open{display:block}
+.mmenu a{display:flex;align-items:center;gap:14px;padding:15px 22px;font-size:15px;font-weight:500;color:#1a1a2e;cursor:pointer;border-left:3px solid transparent}
+.mmenu a:hover{background:rgba(124,58,237,.08);border-left-color:#7C3AED;color:#7C3AED;font-weight:700}
+.mcta{margin:16px;padding:18px;background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:16px}
+.mcta strong{display:block;font-weight:800;font-size:14px;color:#fff;margin-bottom:4px}
+.mcta small{font-size:13px;color:rgba(255,255,255,.85);display:block;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:none;cursor:pointer;font-weight:600;border-radius:50px;transition:all .15s;white-space:nowrap;font-family:"Inter",sans-serif}
+.btn:active{transform:scale(.97)}
+.btng{background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff}
+.btng:hover{opacity:.9}
+.btno{background:#fff;color:#7C3AED;border:2px solid #7C3AED}
+.btno:hover{background:rgba(124,58,237,.06)}
+.btnw{background:#fff;color:#1a1a2e;border:1.5px solid #e0dbf5}
+.btnw:hover{border-color:#7C3AED;color:#7C3AED}
+.btnwh{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.bsm{padding:8px 18px;font-size:13px}
+.bmd{padding:11px 22px;font-size:14.5px}
+.blg{padding:14px 28px;font-size:15.5px}
+.bfull{width:100%;display:flex}
+.page{display:none;min-height:70vh;animation:fi .2s ease}
+.page.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.hero{background:linear-gradient(155deg,#f0eaff 0%,#fce8f6 50%,#ebe9ff 100%);padding:52px 20px 64px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(124,58,237,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,.06) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+.hero-in{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid rgba(124,58,237,.25);border-radius:50px;padding:7px 18px;font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:22px;box-shadow:0 2px 12px rgba(124,58,237,.1)}
+.hero h1{font-family:"Outfit",sans-serif;font-weight:900;font-size:46px;line-height:1.04;color:#1a1a2e;margin-bottom:18px;letter-spacing:-.8px}
+.ac{background:linear-gradient(135deg,#7C3AED,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+.hero p{font-size:17px;color:#4a4a6a;line-height:1.75;margin-bottom:28px;max-width:540px}
+.hbtns{display:flex;flex-direction:column;gap:12px;max-width:380px;margin-bottom:24px}
+.htrust{display:flex;gap:10px;flex-wrap:wrap}
+.htrust span{font-size:12.5px;color:#4a4a6a;background:rgba(255,255,255,.85);border-radius:50px;padding:5px 13px;border:1px solid rgba(124,58,237,.15)}
+.ticker{overflow:hidden;background:#ffffff;border-top:1px solid rgba(124,58,237,.1);border-bottom:1px solid rgba(124,58,237,.1);padding:11px 0}
+.twrap{display:flex;gap:52px;animation:tick 45s linear infinite;width:max-content}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ti{font-size:13.5px;color:#4a4a6a;display:flex;align-items:center;gap:7px;flex-shrink:0;white-space:nowrap}
+.ti.hot{font-weight:700;color:#7C3AED}
+.ti::before{content:"●";font-size:7px;color:rgba(124,58,237,.4)}
+.sec{padding:56px 20px;background:#F0EFFE}
+.sin{max-width:720px;margin:0 auto}
+.sin.wide{max-width:960px}
+.tag{display:inline-flex;background:rgba(124,58,237,.12);color:#7C3AED;border-radius:50px;padding:5px 15px;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px}
+h2{font-family:"Outfit",sans-serif;font-weight:900;font-size:30px;color:#1a1a2e;margin-bottom:8px;line-height:1.15}
+.sub{font-size:15px;color:#4a4a6a;line-height:1.7;margin-bottom:28px}
+.card{background:#ffffff!important;border:1px solid rgba(124,58,237,.1);border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(124,58,237,.06)}
+.g2{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.fc{background:#ffffff!important;border:1px solid rgba(124,58,237,.1);border-radius:16px;padding:22px;cursor:pointer;transition:all .2s}
+.fc:hover{border-color:rgba(124,58,237,.35);transform:translateY(-3px);box-shadow:0 8px 28px rgba(124,58,237,.12)}
+.fc-ic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.fc h3{font-family:"Outfit",sans-serif;font-weight:800;font-size:16px;color:#1a1a2e;margin-bottom:5px}
+.fc p{font-size:14px;color:#4a4a6a;line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.step{text-align:center;padding:28px 18px;background:#F0EFFE!important;border-radius:16px;border:1px solid rgba(124,58,237,.1)}
+.sn{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Outfit",sans-serif;font-weight:900;font-size:22px;margin:0 auto 14px;box-shadow:0 4px 16px rgba(124,58,237,.35)}
+.step h3{font-family:"Outfit",sans-serif;font-weight:800;font-size:16px;color:#1a1a2e;margin-bottom:8px}
+.step p{font-size:14px;color:#4a4a6a;line-height:1.65}
+.psec{background:linear-gradient(135deg,#7C3AED,#EC4899);padding:60px 20px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:14px;max-width:620px;margin:0 auto 28px}
+.pc{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);border-radius:16px;padding:22px 18px;text-align:center;cursor:pointer;position:relative;transition:all .2s}
+.pc:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+.pc.pop{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.75)}
+.pcb{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#fff;color:#7C3AED;font-size:10.5px;font-weight:800;padding:3px 13px;border-radius:99px;white-space:nowrap}
+.pc h3{font-family:"Outfit",sans-serif;font-weight:900;font-size:30px;color:#fff;margin-bottom:3px}
+.pc strong{font-weight:700;font-size:14px;color:rgba(255,255,255,.92);display:block;margin-bottom:3px}
+.pc span{font-size:12px;color:rgba(255,255,255,.72)}
+.inp{width:100%;padding:13px 16px;background:#ffffff!important;border:1.5px solid #e5e0f8;border-radius:11px;color:#1a1a2e;font-size:15px;font-family:"Inter",sans-serif;outline:none}
+.inp:focus{border-color:#7C3AED;box-shadow:0 0 0 3px rgba(124,58,237,.12)}
+.inp::placeholder{color:#b0a8d0}
+.sel{width:100%;padding:13px 16px;background:#fff;border:1.5px solid #e5e0f8;border-radius:11px;color:#1a1a2e;font-size:15px;font-family:"Inter",sans-serif;outline:none;cursor:pointer}
+.sel:focus{border-color:#7C3AED}
+.lbl{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:8px;display:block}
+.fg{margin-bottom:18px}
+.ta{width:100%;padding:13px 16px;background:#fff;border:1.5px solid #e5e0f8;border-radius:11px;color:#1a1a2e;font-size:14px;font-family:"Inter",sans-serif;outline:none;resize:vertical;min-height:110px}
+.wiz{display:flex;align-items:center;overflow-x:auto;padding:14px 0;scrollbar-width:none}
+.wiz::-webkit-scrollbar{display:none}
+.ws{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.wn{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;border:2px solid #d8d4ef;color:#b0a8d0;background:#fff;flex-shrink:0}
+.wn.a{background:linear-gradient(135deg,#7C3AED,#EC4899);border-color:transparent;color:#fff}
+.wn.d{background:#fff;border-color:#7C3AED;color:#7C3AED}
+.wl{font-size:11px;font-weight:600;color:#b0a8d0;white-space:nowrap}
+.wl.a{color:#7C3AED;font-weight:700}
+.wl.d{color:#7C3AED}
+.wline{width:18px;height:2px;background:#d8d4ef;flex-shrink:0;margin:0 3px}
+.wline.d{background:#7C3AED}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.tc{background:#fff;border:1.5px solid #e8e3f8;border-radius:16px;padding:16px;cursor:pointer;transition:all .2s}
+.tc:hover{border-color:rgba(124,58,237,.4)}
+.tc.on{border-color:#7C3AED;background:rgba(124,58,237,.04);box-shadow:0 0 0 3px rgba(124,58,237,.12)}
+.tc-i{font-size:30px;margin-bottom:8px}
+.tc h4{font-family:"Outfit",sans-serif;font-weight:800;font-size:13.5px;color:#1a1a2e;margin-bottom:3px}
+.tc p{font-size:12px;color:#9090b0;line-height:1.4}
+.gbrow{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px}
+.gb{padding:9px 3px;border-radius:9px;border:1.5px solid #e8e3f8;background:#fff;font-size:13px;font-weight:700;cursor:pointer;text-align:center;color:#4a4a6a;flex:1;min-width:38px;font-family:"Inter",sans-serif;transition:all .15s}
+.gb:hover{border-color:#7C3AED;color:#7C3AED}
+.gb.on{background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border-color:transparent}
+.erow{display:flex;align-items:center;gap:12px;padding:13px 16px;border:1.5px solid #e8e3f8;border-radius:12px;cursor:pointer;background:#fff;margin-bottom:9px;transition:all .18s}
+.erow:hover{border-color:rgba(124,58,237,.35)}
+.erow.on{border-color:#7C3AED;background:rgba(124,58,237,.04)}
+.echk{width:24px;height:24px;border-radius:7px;border:2px solid #d8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:900}
+.echk.on{background:linear-gradient(135deg,#7C3AED,#EC4899);border-color:transparent;color:#fff}
+.el{flex:1;font-size:15px;font-weight:500;color:#1a1a2e}
+.erow.on .el{color:#7C3AED;font-weight:700}
+.egs{padding:8px 10px;border:1.5px solid #e8e3f8;border-radius:9px;font-size:13px;font-family:"Inter",sans-serif;outline:none;background:#fff;color:#1a1a2e;width:84px;flex-shrink:0;cursor:pointer}
+.rhero{background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:18px;padding:24px;color:#fff;margin-bottom:16px;overflow:hidden;position:relative}
+.ragg{font-family:"Outfit",sans-serif;font-weight:900;font-size:68px;line-height:1;color:#fff}
+.rstats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+.rs{background:rgba(255,255,255,.14);border-radius:12px;padding:12px 8px;text-align:center}
+.rs-n{font-family:"Outfit",sans-serif;font-weight:900;font-size:22px;color:#fff}
+.rs-l{font-size:10.5px;color:rgba(255,255,255,.8);margin-top:3px}
+.rtabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:16px;scrollbar-width:none;padding-bottom:2px}
+.rtabs::-webkit-scrollbar{display:none}
+.rtab{padding:9px 16px;border-radius:50px;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;border:1.5px solid #e8e3f8;background:#fff;color:#4a4a6a;font-family:"Inter",sans-serif;transition:all .15s}
+.rtab.on{background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border-color:transparent}
+.prog{background:#fff;border:1.5px solid #e8e3f8;border-radius:16px;padding:18px;margin-bottom:12px}
+.prog.q{border-left:4px solid #10b981}
+.prog.n{border-left:4px solid #f59e0b}
+.prog.b{border-left:4px solid #fca5a5}
+.pname{font-weight:800;font-size:16px;color:#1a1a2e;margin-bottom:8px}
+.pmeta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.bdg{display:inline-flex;align-items:center;padding:3px 11px;border-radius:99px;font-size:12px;font-weight:700;white-space:nowrap}
+.bp{background:rgba(124,58,237,.12);color:#7C3AED}
+.bg{background:rgba(16,185,129,.1);color:#10b981}
+.br{background:rgba(239,68,68,.08);color:#ef4444}
+.ba{background:rgba(245,158,11,.09);color:#f59e0b}
+.bgr{background:rgba(0,0,0,.06);color:#4a4a6a}
+.why{background:#f0fdf4;border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:13.5px;color:#166534;line-height:1.65}
+.iss{background:#fff5f5;border:1px solid rgba(239,68,68,.15);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:13.5px;color:#991b1b;line-height:1.65}
+.career{background:rgba(124,58,237,.05);border:1px solid rgba(124,58,237,.12);border-radius:10px;padding:12px 16px;margin-top:12px}
+.career-lbl{font-size:11px;font-weight:800;color:#7C3AED;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.career-txt{font-size:13.5px;color:#4a4a6a;line-height:1.65}
+.mov{display:none;position:fixed;inset:0;background:rgba(10,5,30,.7);z-index:600;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
+.mov.on{display:flex}
+.modal{background:#fff;border-radius:18px;padding:26px;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;position:relative}
+.modal h3{font-family:"Outfit",sans-serif;font-weight:900;font-size:21px;color:#1a1a2e;margin-bottom:16px}
+.prow{display:flex;align-items:center;gap:14px;padding:15px 18px;border:2px solid #e8e3f8;border-radius:16px;margin-bottom:11px;cursor:pointer;position:relative;transition:all .15s}
+.prow:hover{border-color:rgba(124,58,237,.4)}
+.prow.on{border-color:#7C3AED;background:rgba(124,58,237,.04)}
+.pi{font-size:24px;flex-shrink:0}
+.pin{flex:1}
+.pname2{font-weight:700;font-size:15.5px;color:#1a1a2e}
+.pdesc{font-size:13.5px;color:#4a4a6a;margin-top:2px}
+.prad{width:22px;height:22px;border-radius:50%;border:2px solid #d4d0f0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;transition:all .15s}
+.prow.on .prad{background:#7C3AED;border-color:#7C3AED}
+.chat-msgs{display:flex;flex-direction:column;gap:10px;padding-bottom:16px}
+.cai{padding:13px 17px;border-radius:16px 16px 16px 4px;max-width:86%;font-size:14.5px;line-height:1.65;background:#fff;border:1px solid rgba(124,58,237,.12);color:#1a1a2e;align-self:flex-start}
+.cuser{padding:13px 17px;border-radius:16px 16px 4px 16px;max-width:86%;font-size:14.5px;line-height:1.65;background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;align-self:flex-end}
+.stk{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(24px);border-top:1px solid rgba(124,58,237,.1);padding:10px 14px;display:flex;gap:8px;z-index:200}
+footer{background:#0f172a;padding:56px 20px 32px}
+.ftg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto}
+.fthead{font-size:11px;font-weight:800;color:#f1f5f9;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px}
+.fta{font-size:14px;color:#475569;cursor:pointer;padding:5px 0;display:block}
+.fta:hover{color:#e2e8f0}
+.ftbot{border-top:1px solid rgba(255,255,255,.07);margin-top:40px;padding-top:26px;max-width:1100px;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.team-card{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid rgba(124,58,237,.1);border-radius:16px;padding:22px;margin-bottom:16px}
+.team-photo{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid rgba(124,58,237,.2);flex-shrink:0;background:linear-gradient(135deg,#7C3AED,#EC4899)}
+@media(max-width:700px){.ftg{grid-template-columns:1fr 1fr}.rstats{grid-template-columns:repeat(4,1fr)}.tgrid{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}
+@media(max-width:380px){.rstats{grid-template-columns:repeat(2,1fr)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+<script src="https://js.paystack.co/v1/inline.js" onerror="window._psErr=true"></script>
+</head>
+<body>
+
+<div class="ann">
+  <div class="ann-t">🎓 2025/2026 Admissions Open — UG, KNUST, UCC, GIMPA now accepting applications</div>
+  <div class="ann-l" onclick="go('forms')">View All →</div>
+</div>
+
+<nav class="nav">
+  <div class="nlogo" onclick="go('home')">
+    <div class="nlogo-box">🎓</div>
+    <div class="nlogo-txt">Uni<b>Predict</b></div>
+  </div>
+  <div class="nlinks">
+    <a onclick="go('checker')">Check Eligibility</a>
+    <a onclick="go('universities')">Universities</a>
+    <a onclick="go('cutoffs')">Cut-Offs</a>
+    <a onclick="go('scholarships')">Scholarships</a>
+    <a onclick="go('aiChat')">AI Counsellor</a>
+    <a onclick="go('about')">About</a>
+  </div>
+  <div class="nbtns">
+    <button class="btn btnw bsm" onclick="go('checker')">Sign In</button>
+    <button class="btn btng bsm" onclick="go('checker')">Get Started →</button>
+  </div>
+  <button class="ham" onclick="toggleMenu()">☰</button>
+</nav>
+
+<div class="mmenu" id="mm">
+  <a onclick="go('checker')">🔍 Check Eligibility</a>
+  <a onclick="go('calculator')">📐 Calculate Aggregate</a>
+  <a onclick="go('universities')">🏛️ Universities</a>
+  <a onclick="go('programs')">📚 Programmes</a>
+  <a onclick="go('cutoffs')">📊 Cut-Off Points</a>
+  <a onclick="go('scholarships')">🎓 Scholarships</a>
+  <a onclick="go('forms')">📝 Admission Forms</a>
+  <a onclick="go('news')">📰 News</a>
+  <a onclick="go('aiChat')">🤖 AI Counsellor</a>
+  <a onclick="go('pricing')">💳 Pricing</a>
+  <a onclick="go('about')">ℹ️ About</a>
+  <a onclick="go('contact')">📱 Contact</a>
+  <a onclick="go('faq')">❓ FAQ</a>
+  <div class="mcta">
+    <strong>🎓 Check Your Eligibility Now</strong>
+    <small>Basic · Premium · Bundle</small>
+    <button class="btn bfull blg" style="background:#fff;color:#7C3AED;border-radius:50px;border:none;padding:13px" onclick="go('checker')">Start My Check →</button>
+  </div>
+</div>
+
+<!-- HOME -->
+
+<div id="pg-home" class="page on">
+  <div class="hero">
+    <div class="hero-in">
+      <div class="badge">● Ghana's #1 University Admission Platform</div>
+      <h1>Predict. Match.<br><span class="ac">Achieve.</span></h1>
+      <p>Enter your WASSCE results and instantly discover every university and programme you qualify for across <strong><span id="uni-count">74</span> institutions</strong>. Subject combination verified. Ranked by best match.</p>
+      <div class="hbtns">
+        <button class="btn btng blg bfull" onclick="go('checker')">🔍 Check My Eligibility →</button>
+        <button class="btn btno blg bfull" onclick="go('calculator')">📐 Calculate Aggregate</button>
+      </div>
+      <div class="htrust">
+        <span>✓ Real subject checks</span><span>✓ <span id="prog-count">1,000+</span> programmes</span><span>✓ 2026 cut-off data</span><span>✓ Free to browse</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker"><div class="twrap" id="ticker-in"></div></div>
+
+  <div class="sec" style="background:#ffffff!important">
+    <div class="sin" style="text-align:center">
+      <div class="tag">How It Works</div>
+      <h2>3 Steps to Know Your Options</h2>
+      <p class="sub">From results to university matches in under 2 minutes</p>
+      <div class="steps">
+        <div class="step"><div class="sn">1</div><div style="font-size:26px;margin-bottom:12px">📝</div><h3>Enter Your Grades</h3><p>Select your SHS track and enter WASSCE results — core subjects and electives.</p></div>
+        <div class="step"><div class="sn">2</div><div style="font-size:26px;margin-bottom:12px">💳</div><h3>Pay Securely</h3><p>Basic · Premium · Bundle. MTN MoMo, Vodafone, Card.</p></div>
+        <div class="step"><div class="sn">3</div><div style="font-size:26px;margin-bottom:12px">🎯</div><h3>Get Results</h3><p>Every programme you qualify for, ranked by eligibility with cut-offs and career paths.</p></div>
+      </div>
+      <button class="btn btng blg" style="margin-top:28px" onclick="go('checker')">Start My Free Check →</button>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sin">
+      <div style="text-align:center;margin-bottom:28px">
+        <div class="tag">Everything You Need</div>
+        <h2>Built for Ghanaian Students</h2>
+      </div>
+      <div class="g2">
+        <div class="fc" onclick="go('checker')"><div class="fc-ic" style="background:#7C3AED15">🎯</div><h3>Eligibility Checker</h3><p>Official WASSCE formula. Programme-specific for all universities.</p></div>
+        <div class="fc" onclick="go('aiChat')"><div class="fc-ic" style="background:#f59e0b15">🤖</div><h3>AI Counsellor</h3><p>Personalised advice on programmes and career paths. Powered by AI.</p></div>
+        <div class="fc" onclick="go('scholarships')"><div class="fc-ic" style="background:#10b98115">🎓</div><h3>Scholarships</h3><p>GETFUND, Mastercard Foundation, MTN Ghana and more — apply directly.</p></div>
+        <div class="fc" onclick="go('cutoffs')"><div class="fc-ic" style="background:#3b82f615">📊</div><h3>Cut-Off Points</h3><p>Official 2025/2026 cut-off aggregates from university publications.</p></div>
+        <div class="fc" onclick="go('universities')"><div class="fc-ic" style="background:#EC489915">🏛️</div><h3>Universities</h3><p>Browse all accredited Ghanaian universities with details.</p></div>
+        <div class="fc" onclick="go('forms')"><div class="fc-ic" style="background:#8b5cf615">📝</div><h3>Admission Forms</h3><p>Track form openings, deadlines and portal links in one place.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="psec">
+    <div style="text-align:center;margin-bottom:28px">
+      <h2 style="color:#fff;font-family:Outfit,sans-serif">Simple, Affordable Pricing</h2>
+      <p style="color:rgba(255,255,255,.85);font-size:15px;margin-top:6px">No subscription. No hidden fees. Pay only when you need a check.</p>
+    </div>
+    <div class="pgrid">
+      <div class="pc" onclick="go('checker')"><div class="pc-i">🏛️</div><h3 data-price-basic>GHC12</h3><strong>Basic</strong><span>1 University</span></div>
+      <div class="pc pop" onclick="go('checker')"><div class="pcb">POPULAR</div><div class="pc-i">⭐</div><h3 data-price-premium>GHC26</h3><strong>Premium</strong><span>All Universities</span></div>
+      <div class="pc" onclick="go('checker')"><div class="pc-i">🔥</div><h3 data-price-bundle>GHC32</h3><strong>Bundle</strong><span>3 Checks</span></div>
+    </div>
+    <div style="text-align:center">
+      <button class="btn blg" style="background:#fff;color:#7C3AED;border:none;border-radius:50px" onclick="go('checker')">Check My Eligibility Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKER -->
+
+<div id="pg-checker" class="page">
+  <div style="max-width:700px;margin:0 auto;padding:20px">
+    <div class="card" style="margin-bottom:14px;display:flex;gap:14px;align-items:flex-start">
+      <div style="font-size:38px;flex-shrink:0">🎓</div>
+      <div><h2 style="font-size:20px;margin-bottom:4px">University Eligibility Checker</h2><p style="font-size:13px;color:#4a4a6a">Full subject verification · Ranked results · 74 universities · 2,500+ programmes</p></div>
+    </div>
+    <div class="card" style="margin-bottom:14px;padding:16px 20px"><div class="wiz" id="wiz"></div></div>
+    <div id="chk-body"></div>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+
+<div id="pg-calculator" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">Calculator</div>
+    <h2 style="margin-bottom:6px">Calculate Your Aggregate</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Enter your grades — we calculate your best-6 WASSCE aggregate.</p>
+    <div class="card" style="margin-bottom:14px">
+      <div class="fg"><label class="lbl">SHS Track</label>
+      <select class="sel" id="ct" onchange="buildCalcEls()">
+        <option>General Science</option><option>General Arts</option><option>Business</option>
+        <option>Home Economics</option><option>Visual Arts</option><option>Technical</option><option>Agricultural Science</option>
+      </select></div>
+      <div id="calc-core"></div>
+      <div id="calc-els"></div>
+    </div>
+    <div id="calc-res" style="display:none;background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:18px;padding:28px;text-align:center;margin-bottom:16px">
+      <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">YOUR AGGREGATE</div>
+      <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:80px;color:#fff;line-height:1" id="cnum">—</div>
+      <div style="font-size:14px;color:rgba(255,255,255,.9);margin-top:14px" id="clbl"></div>
+    </div>
+    <button class="btn btng bfull blg" onclick="go('checker')">Get Full Eligibility Report →</button>
+  </div></div>
+</div>
+
+<!-- UNIVERSITIES -->
+
+<div id="pg-universities" class="page">
+  <div class="sec"><div class="sin wide">
+    <div class="tag" style="margin-bottom:10px">Universities</div>
+    <h2 style="margin-bottom:16px"><span id="uni-count2">74</span> Accredited Universities</h2>
+    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+      <input class="inp" id="us" placeholder="Search universities..." oninput="renderUnis()" style="flex:1;min-width:200px"/>
+      <select class="sel" id="ut" onchange="renderUnis()" style="width:auto;min-width:140px"><option value="">All Types</option><option>Public</option><option>Private</option><option>Technical</option></select>
+    </div>
+    <div class="g2" id="uni-grid"></div>
+  </div></div>
+</div>
+
+<!-- PROGRAMMES -->
+
+<div id="pg-programs" class="page">
+  <div class="sec"><div class="sin wide">
+    <div class="tag" style="margin-bottom:10px">Programmes</div>
+    <h2 style="margin-bottom:16px">1,000+ Programmes</h2>
+    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+      <input class="inp" id="ps" placeholder="Search programmes..." oninput="renderProgs()" style="flex:1;min-width:200px"/>
+      <select class="sel" id="pu" onchange="renderProgs()" style="width:auto;min-width:140px"><option value="">All Universities</option></select>
+    </div>
+    <div id="prog-list"></div>
+  </div></div>
+</div>
+
+<!-- CUTOFFS -->
+
+<div id="pg-cutoffs" class="page">
+  <div class="sec"><div class="sin wide">
+    <div class="tag" style="margin-bottom:10px">Cut-Off Points</div>
+    <h2 style="margin-bottom:6px">2025/2026 Cut-Off Aggregates</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Official data. Always verify with universities before applying.</p>
+    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+      <input class="inp" id="cs" placeholder="Search programmes..." oninput="renderCO()" style="flex:1;min-width:200px"/>
+      <select class="sel" id="cu" onchange="renderCO()" style="width:auto;min-width:140px"><option value="">All Universities</option></select>
+    </div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <thead><tr style="background:#F0EFFE">
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Programme</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">University</th>
+          <th style="padding:12px 14px;text-align:center;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Cut-Off</th>
+        </tr></thead>
+        <tbody id="co-body"></tbody>
+      </table>
+    </div>
+  </div></div>
+</div>
+
+<!-- SCHOLARSHIPS -->
+
+<div id="pg-scholarships" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">Scholarships</div>
+    <h2 style="margin-bottom:6px">Available Scholarships</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Funding opportunities for Ghanaian university students</p>
+    <div id="schol-list"></div>
+  </div></div>
+</div>
+
+<!-- FORMS -->
+
+<div id="pg-forms" class="page">
+  <div class="sec"><div class="sin wide">
+    <div class="tag" style="margin-bottom:10px">Admission Forms</div>
+    <h2 style="margin-bottom:6px">Admission Forms Tracker</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Track form opening status and deadlines for all universities</p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:500px">
+        <thead><tr style="background:#F0EFFE">
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">University</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Status</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Deadline</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Fee</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Action</th>
+        </tr></thead>
+        <tbody id="forms-body"></tbody>
+      </table>
+    </div>
+  </div></div>
+</div>
+
+<!-- NEWS -->
+
+<div id="pg-news" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">News</div>
+    <h2 style="margin-bottom:16px">Latest Updates</h2>
+    <div id="news-list"></div>
+  </div></div>
+</div>
+
+<!-- AI CHAT -->
+
+<div id="pg-aiChat" class="page">
+  <div style="max-width:700px;margin:0 auto;padding:20px 20px 0">
+    <div class="tag" style="margin-bottom:8px">AI Counsellor</div>
+    <h2 style="margin-bottom:4px">UniPredict AI Counsellor</h2>
+    <p style="font-size:13.5px;color:#4a4a6a;margin-bottom:16px">Ask anything about university admissions in Ghana</p>
+  </div>
+  <div style="max-width:700px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;height:calc(100vh - 280px)">
+    <div id="chat-msgs" class="chat-msgs" style="flex:1;overflow-y:auto"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;padding:10px 0">
+      <button class="btn btnw bsm" onclick="sendChat('What is my aggregate?')">What is my aggregate?</button>
+      <button class="btn btnw bsm" onclick="sendChat('KNUST cut-offs 2025')">KNUST cut-offs</button>
+      <button class="btn btnw bsm" onclick="sendChat('What scholarships can I apply for?')">Scholarships</button>
+      <button class="btn btnw bsm" onclick="sendChat('Best programmes for General Science track')">Best programmes</button>
+    </div>
+    <div style="display:flex;gap:10px;padding:12px 0;border-top:1px solid rgba(124,58,237,.1)">
+      <input class="inp" id="chat-inp" placeholder="Ask about programmes, cut-offs, scholarships..." style="flex:1" onkeydown="if(event.key==='Enter')sendChat()"/>
+      <button class="btn btng bmd" onclick="sendChat()">Send →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+
+<div id="pg-pricing" class="page">
+  <div class="sec"><div class="sin">
+    <div style="text-align:center;margin-bottom:36px">
+      <div class="tag" style="margin-bottom:12px">Pricing</div>
+      <h2>Simple, Affordable Pricing</h2>
+      <p class="sub">No subscription. No hidden fees. Pay only when you need a check.</p>
+    </div>
+    <div class="g3" style="margin-bottom:28px">
+      <div class="card" style="position:relative">
+        <div style="font-size:30px;margin-bottom:12px">🏛️</div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:32px;color:#7C3AED;margin-bottom:3px" data-price-basic>GHC12</div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:3px">Basic</div>
+        <div style="font-size:13.5px;color:#4a4a6a;margin-bottom:16px">1 University · 1 Check</div>
+        <div style="margin-bottom:20px">
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>1 university eligibility check</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Full subject verification</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Career paths per programme</div>
+        </div>
+        <button class="btn btno bfull blg" onclick="go('checker')">Get Started →</button>
+      </div>
+      <div class="card" style="position:relative;border:2px solid #7C3AED;box-shadow:0 8px 28px rgba(124,58,237,.18)">
+        <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;font-size:11px;font-weight:800;padding:4px 16px;border-radius:99px;white-space:nowrap">MOST POPULAR</div>
+        <div style="font-size:30px;margin-bottom:12px">⭐</div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:32px;color:#7C3AED;margin-bottom:3px" data-price-premium>GHC26</div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:3px">Premium</div>
+        <div style="font-size:13.5px;color:#4a4a6a;margin-bottom:16px">All Universities · 1 Check</div>
+        <div style="margin-bottom:20px">
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>All universities checked</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Full ranked results</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Scholarship matches</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Career paths & prospects</div>
+        </div>
+        <button class="btn btng bfull blg" onclick="go('checker')">Get Started →</button>
+      </div>
+      <div class="card" style="position:relative">
+        <div style="font-size:30px;margin-bottom:12px">🔥</div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:32px;color:#7C3AED;margin-bottom:3px" data-price-bundle>GHC32</div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:3px">Bundle</div>
+        <div style="font-size:13.5px;color:#4a4a6a;margin-bottom:16px">All Universities · 3 Checks</div>
+        <div style="margin-bottom:20px">
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>3 full premium checks</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Share with friends</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Best value option</div>
+        </div>
+        <button class="btn btno bfull blg" onclick="go('checker')">Get Started →</button>
+      </div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-weight:700;font-size:15px;color:#1a1a2e;margin-bottom:8px">💳 Accepted Payment Methods</div>
+      <div style="font-size:14px;color:#4a4a6a">📱 MTN MoMo &nbsp;·&nbsp; 📲 Vodafone Cash &nbsp;·&nbsp; 📳 AirtelTigo &nbsp;·&nbsp; 💳 Visa / Mastercard</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ABOUT -->
+
+<div id="pg-about" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">About</div>
+    <h2 style="margin-bottom:16px">About UniPredict Ghana</h2>
+    <div class="card" style="margin-bottom:18px">
+      <h3 style="font-family:Outfit,sans-serif;font-weight:800;font-size:19px;margin-bottom:12px">Our Mission</h3>
+      <p style="font-size:15px;color:#4a4a6a;line-height:1.75;margin-bottom:12px">UniPredict Ghana is Ghana's most comprehensive university admission intelligence platform. We help WASSCE students make informed decisions about their university applications by providing accurate eligibility checks, verified cut-off points, and personalised programme recommendations.</p>
+      <p style="font-size:15px;color:#4a4a6a;line-height:1.75">We cover all accredited Ghanaian universities with over 1,000 programmes, using the official WASSCE aggregate formula to give you precise, programme-specific eligibility results.</p>
+    </div>
+    <h2 style="font-size:24px;margin-bottom:8px">Meet the Team</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Built by young Ghanaians, for Ghanaian students.</p>
+    <div class="team-card">
+      <img class="team-photo" src="https://i.imgur.com/6dQfNZr.jpeg" alt="Alexander Piasa Asiamah" onerror="this.style.display='none'"/>
+      <div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:18px;color:#1a1a2e;margin-bottom:6px">Alexander Piasa Asiamah</div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px"><span class="bdg bp">Founder & CEO</span><span class="bdg bp">CTO</span></div>
+        <p style="font-size:14px;color:#4a4a6a;line-height:1.7">Visionary behind UniPredict Ghana. Alexander built the platform from the ground up with a mission to make university admissions transparent and accessible for every Ghanaian student.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img class="team-photo" src="https://i.imgur.com/0zoQrig.jpeg" alt="Gideon Appianing" onerror="this.style.display='none'"/>
+      <div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:18px;color:#1a1a2e;margin-bottom:6px">Gideon Appianing</div>
+        <div style="display:flex;gap:7px;margin-bottom:10px"><span class="bdg bp">Co-CTO</span></div>
+        <p style="font-size:14px;color:#4a4a6a;line-height:1.7">Co-Chief Technology Officer at UniPredict Ghana. Gideon brings deep technical expertise to ensure the platform is robust, fast and reliable for thousands of Ghanaian students.</p>
+      </div>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,#7C3AED,#EC4899);border:none;margin-top:4px">
+      <div style="font-weight:800;font-size:16px;color:#fff;margin-bottom:5px">🇬🇭 Made in Ghana</div>
+      <div style="font-size:14px;color:rgba(255,255,255,.88)">Built by Ghanaians for Ghanaian students. We understand the challenges of university admissions in Ghana and are committed to making the process clearer and fairer for every student.</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- CONTACT -->
+
+<div id="pg-contact" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">Contact</div>
+    <h2 style="margin-bottom:16px">Contact Us</h2>
+    <div class="g3" style="margin-bottom:22px">
+      <div class="card" style="text-align:center"><div style="font-size:30px;margin-bottom:10px">📧</div><div style="font-weight:700;font-size:13.5px;margin-bottom:3px;color:#1a1a2e">Email</div><div style="font-size:13.5px;color:#4a4a6a">UniPredictghana@gmail.com</div></div>
+      <div class="card" style="text-align:center"><div style="font-size:30px;margin-bottom:10px">📱</div><div style="font-weight:700;font-size:13.5px;margin-bottom:3px;color:#1a1a2e">WhatsApp</div><div style="font-size:13.5px;color:#4a4a6a">0537 889 150</div></div>
+      <div class="card" style="text-align:center"><div style="font-size:30px;margin-bottom:10px">🕐</div><div style="font-weight:700;font-size:13.5px;margin-bottom:3px;color:#1a1a2e">Response Time</div><div style="font-size:13.5px;color:#4a4a6a">Within 24 hours</div></div>
+    </div>
+    <div class="card">
+      <h3 style="font-family:Outfit,sans-serif;font-weight:800;font-size:19px;margin-bottom:18px">Send a Message</h3>
+      <div class="fg"><label class="lbl">Your Name</label><input class="inp" id="cn" placeholder="e.g. Kofi Mensah"/></div>
+      <div class="fg"><label class="lbl">Email (optional)</label><input class="inp" id="ce" type="email" placeholder="your@email.com"/></div>
+      <div class="fg"><label class="lbl">Message</label><textarea class="ta" id="cm" placeholder="How can we help you?"></textarea></div>
+      <button class="btn btng bfull blg" onclick="doContact()">Send Message →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- FAQ -->
+
+<div id="pg-faq" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">FAQ</div>
+    <h2 style="margin-bottom:22px">Frequently Asked Questions</h2>
+    <div id="faq-list"></div>
+  </div></div>
+</div>
+
+<!-- PAY MODAL -->
+
+<div class="mov" id="pay-modal">
+  <div class="modal">
+    <button onclick="closeModal()" style="position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;font-size:22px;color:#9090b0;line-height:1">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- STICKY -->
+
+<div class="stk" id="stk">
+  <button class="btn btng bsm bfull" style="flex:1;padding:12px 8px;font-size:14px;border-radius:50px" onclick="go('checker')">🔍 Check Eligibility</button>
+  <button class="btn btnw bsm" style="flex:1;padding:12px 8px;font-size:13px;border-radius:50px" onclick="go('aiChat')">🤖 AI Counsellor</button>
+  <button class="btn btnw bsm" style="flex:1;padding:12px 8px;font-size:13px;border-radius:50px" onclick="go('pricing')">💳 Pricing</button>
+</div>
+
+<footer>
+  <div class="ftg">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;cursor:pointer" onclick="go('home')">
+        <div style="width:32px;height:32px;background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px">🎓</div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:17px;color:#fff">UniPredict Ghana</div>
+      </div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;max-width:260px;margin-bottom:16px">Ghana's university admission intelligence platform. 74+ institutions, 2,500+ programmes.</p>
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);border-radius:99px;padding:5px 13px;font-size:12px;font-weight:700;color:#34d399">● Live 2026</div>
+      <div style="font-size:13.5px;color:#475569;margin-top:10px">🇬🇭 Made in Ghana</div>
+    </div>
+    <div>
+      <div class="fthead">Resources</div>
+      <a class="fta" onclick="go('checker')">Check Eligibility</a>
+      <a class="fta" onclick="go('calculator')">Calculator</a>
+      <a class="fta" onclick="go('universities')">Universities</a>
+      <a class="fta" onclick="go('cutoffs')">Cut-Off Points</a>
+      <a class="fta" onclick="go('scholarships')">Scholarships</a>
+    </div>
+    <div>
+      <div class="fthead">Company</div>
+      <a class="fta" onclick="go('about')">About Us</a>
+      <a class="fta" onclick="go('contact')">Contact</a>
+      <a class="fta" onclick="go('faq')">FAQ</a>
+      <a class="fta" onclick="go('pricing')">Pricing</a>
+      <a class="fta" onclick="go('news')">News</a>
+    </div>
+    <div>
+      <div class="fthead">Legal</div>
+      <a class="fta" onclick="alert('Privacy Policy: Email UniPredictghana@gmail.com')">Privacy Policy</a>
+      <a class="fta" onclick="alert('Not affiliated with any Ghanaian university or WAEC')">Terms of Service</a>
+      <a class="fta" onclick="alert('Cut-offs are for reference only. Verify with universities before applying.')">Disclaimer</a>
+      <a class="fta" onclick="alert('Refund Policy: Email UniPredictghana@gmail.com within 48 hours')">Refund Policy</a>
+    </div>
+  </div>
+  <div class="ftbot">
+    <div style="font-size:13px;color:#334155">© 2025 UniPredict Ghana. All rights reserved. · PREDICT. MATCH. ACHIEVE.</div>
+    <div style="display:flex;gap:16px">
+      <span onclick="go('about')" style="font-size:13px;color:#334155;cursor:pointer;text-decoration:underline">About</span>
+      <span onclick="go('contact')" style="font-size:13px;color:#334155;cursor:pointer;text-decoration:underline">Contact</span>
+    </div>
+  </div>
+</footer>
+
+<script src="student.js"></script>
+
+</body>
+</html>
