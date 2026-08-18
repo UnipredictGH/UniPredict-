@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UniPredict Ghana — Predict. Match. Achieve.</title>
+<meta name="description" content="Ghana's #1 university admission eligibility platform."/>
+<meta name="color-scheme" content="light only"/>
+<meta name="supported-color-schemes" content="light"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8KHXSQW5TK" onerror="void(0)"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-8KHXSQW5TK");</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light only}
+@media(prefers-color-scheme:dark){html,body{background:#F0EFFE!important;color:#1a1a2e!important}}
+body{font-family:"Inter",sans-serif;background:#F0EFFE!important;color:#1a1a2e!important;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.ann{background:linear-gradient(135deg,#7C3AED,#EC4899);padding:10px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ann-t{font-size:13px;font-weight:600;color:#fff;flex:1;line-height:1.4}
+.ann-l{font-size:11px;color:rgba(255,255,255,.9);font-weight:700;text-decoration:underline;cursor:pointer;white-space:nowrap}
+.nav{position:sticky;top:0;z-index:300;background:#ffffff!important;border-bottom:1px solid rgba(124,58,237,.12);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-shadow:0 1px 12px rgba(124,58,237,.07)}
+.nlogo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.nlogo-box{width:36px;height:36px;background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.nlogo-txt{font-family:"Outfit",sans-serif;font-weight:900;font-size:20px;color:#1a1a2e}
+.nlogo-txt b{background:linear-gradient(135deg,#7C3AED,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline}
+.nlinks{display:flex;gap:2px}
+.nlinks a{padding:7px 12px;border-radius:8px;font-size:13px;font-weight:500;color:#4a4a6a;cursor:pointer;transition:all .15s}
+.nlinks a:hover{color:#7C3AED;background:rgba(124,58,237,.08);font-weight:600}
+.nbtns{display:flex;gap:8px;align-items:center}
+.ham{display:none;background:none;border:none;font-size:25px;color:#1a1a2e;padding:4px;cursor:pointer}
+@media(max-width:768px){.nlinks,.nbtns{display:none}.ham{display:block}}
+.mmenu{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:rgba(240,239,254,.98);backdrop-filter:blur(20px);z-index:299;overflow-y:auto;padding-bottom:100px}
+.mmenu.open{display:block}
+.mmenu a{display:flex;align-items:center;gap:14px;padding:15px 22px;font-size:15px;font-weight:500;color:#1a1a2e;cursor:pointer;border-left:3px solid transparent}
+.mmenu a:hover{background:rgba(124,58,237,.08);border-left-color:#7C3AED;color:#7C3AED;font-weight:700}
+.mcta{margin:16px;padding:18px;background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:16px}
+.mcta strong{display:block;font-weight:800;font-size:14px;color:#fff;margin-bottom:4px}
+.mcta small{font-size:13px;color:rgba(255,255,255,.85);display:block;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:none;cursor:pointer;font-weight:600;border-radius:50px;transition:all .15s;white-space:nowrap;font-family:"Inter",sans-serif}
+.btn:active{transform:scale(.97)}
+.btng{background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff}
+.btng:hover{opacity:.9}
+.btno{background:#fff;color:#7C3AED;border:2px solid #7C3AED}
+.btno:hover{background:rgba(124,58,237,.06)}
+.btnw{background:#fff;color:#1a1a2e;border:1.5px solid #e0dbf5}
+.btnw:hover{border-color:#7C3AED;color:#7C3AED}
+.btnwh{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.bsm{padding:8px 18px;font-size:13px}
+.bmd{padding:11px 22px;font-size:14.5px}
+.blg{padding:14px 28px;font-size:15.5px}
+.bfull{width:100%;display:flex}
+.page{display:none;min-height:70vh;animation:fi .2s ease}
+.page.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.hero{background:linear-gradient(155deg,#f0eaff 0%,#fce8f6 50%,#ebe9ff 100%);padding:52px 20px 64px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(124,58,237,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,.06) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+.hero-in{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid rgba(124,58,237,.25);border-radius:50px;padding:7px 18px;font-size:13px;font-weight:700;color:#7C3AED;margin-bottom:22px;box-shadow:0 2px 12px rgba(124,58,237,.1)}
+.hero h1{font-family:"Outfit",sans-serif;font-weight:900;font-size:46px;line-height:1.04;color:#1a1a2e;margin-bottom:18px;letter-spacing:-.8px}
+.ac{background:linear-gradient(135deg,#7C3AED,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+.hero p{font-size:17px;color:#4a4a6a;line-height:1.75;margin-bottom:28px;max-width:540px}
+.hbtns{display:flex;flex-direction:column;gap:12px;max-width:380px;margin-bottom:24px}
+.htrust{display:flex;gap:10px;flex-wrap:wrap}
+.htrust span{font-size:12.5px;color:#4a4a6a;background:rgba(255,255,255,.85);border-radius:50px;padding:5px 13px;border:1px solid rgba(124,58,237,.15)}
+.ticker{overflow:hidden;background:#ffffff;border-top:1px solid rgba(124,58,237,.1);border-bottom:1px solid rgba(124,58,237,.1);padding:11px 0}
+.twrap{display:flex;gap:52px;animation:tick 45s linear infinite;width:max-content}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ti{font-size:13.5px;color:#4a4a6a;display:flex;align-items:center;gap:7px;flex-shrink:0;white-space:nowrap}
+.ti.hot{font-weight:700;color:#7C3AED}
+.ti::before{content:"●";font-size:7px;color:rgba(124,58,237,.4)}
+.sec{padding:56px 20px;background:#F0EFFE}
+.sin{max-width:720px;margin:0 auto}
+.sin.wide{max-width:960px}
+.tag{display:inline-flex;background:rgba(124,58,237,.12);color:#7C3AED;border-radius:50px;padding:5px 15px;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px}
+h2{font-family:"Outfit",sans-serif;font-weight:900;font-size:30px;color:#1a1a2e;margin-bottom:8px;line-height:1.15}
+.sub{font-size:15px;color:#4a4a6a;line-height:1.7;margin-bottom:28px}
+.card{background:#ffffff!important;border:1px solid rgba(124,58,237,.1);border-radius:16px;padding:22px;box-shadow:0 2px 12px rgba(124,58,237,.06)}
+.g2{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.fc{background:#ffffff!important;border:1px solid rgba(124,58,237,.1);border-radius:16px;padding:22px;cursor:pointer;transition:all .2s}
+.fc:hover{border-color:rgba(124,58,237,.35);transform:translateY(-3px);box-shadow:0 8px 28px rgba(124,58,237,.12)}
+.fc-ic{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.fc h3{font-family:"Outfit",sans-serif;font-weight:800;font-size:16px;color:#1a1a2e;margin-bottom:5px}
+.fc p{font-size:14px;color:#4a4a6a;line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.step{text-align:center;padding:28px 18px;background:#F0EFFE!important;border-radius:16px;border:1px solid rgba(124,58,237,.1)}
+.sn{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;display:flex;align-items:center;justify-content:center;font-family:"Outfit",sans-serif;font-weight:900;font-size:22px;margin:0 auto 14px;box-shadow:0 4px 16px rgba(124,58,237,.35)}
+.step h3{font-family:"Outfit",sans-serif;font-weight:800;font-size:16px;color:#1a1a2e;margin-bottom:8px}
+.step p{font-size:14px;color:#4a4a6a;line-height:1.65}
+.psec{background:linear-gradient(135deg,#7C3AED,#EC4899);padding:60px 20px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:14px;max-width:620px;margin:0 auto 28px}
+.pc{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.2);border-radius:16px;padding:22px 18px;text-align:center;cursor:pointer;position:relative;transition:all .2s}
+.pc:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+.pc.pop{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.75)}
+.pcb{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#fff;color:#7C3AED;font-size:10.5px;font-weight:800;padding:3px 13px;border-radius:99px;white-space:nowrap}
+.pc h3{font-family:"Outfit",sans-serif;font-weight:900;font-size:30px;color:#fff;margin-bottom:3px}
+.pc strong{font-weight:700;font-size:14px;color:rgba(255,255,255,.92);display:block;margin-bottom:3px}
+.pc span{font-size:12px;color:rgba(255,255,255,.72)}
+.inp{width:100%;padding:13px 16px;background:#ffffff!important;border:1.5px solid #e5e0f8;border-radius:11px;color:#1a1a2e;font-size:15px;font-family:"Inter",sans-serif;outline:none}
+.inp:focus{border-color:#7C3AED;box-shadow:0 0 0 3px rgba(124,58,237,.12)}
+.inp::placeholder{color:#b0a8d0}
+.sel{width:100%;padding:13px 16px;background:#fff;border:1.5px solid #e5e0f8;border-radius:11px;color:#1a1a2e;font-size:15px;font-family:"Inter",sans-serif;outline:none;cursor:pointer}
+.sel:focus{border-color:#7C3AED}
+.lbl{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:8px;display:block}
+.fg{margin-bottom:18px}
+.ta{width:100%;padding:13px 16px;background:#fff;border:1.5px solid #e5e0f8;border-radius:11px;color:#1a1a2e;font-size:14px;font-family:"Inter",sans-serif;outline:none;resize:vertical;min-height:110px}
+.wiz{display:flex;align-items:center;overflow-x:auto;padding:14px 0;scrollbar-width:none}
+.wiz::-webkit-scrollbar{display:none}
+.ws{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.wn{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;border:2px solid #d8d4ef;color:#b0a8d0;background:#fff;flex-shrink:0}
+.wn.a{background:linear-gradient(135deg,#7C3AED,#EC4899);border-color:transparent;color:#fff}
+.wn.d{background:#fff;border-color:#7C3AED;color:#7C3AED}
+.wl{font-size:11px;font-weight:600;color:#b0a8d0;white-space:nowrap}
+.wl.a{color:#7C3AED;font-weight:700}
+.wl.d{color:#7C3AED}
+.wline{width:18px;height:2px;background:#d8d4ef;flex-shrink:0;margin:0 3px}
+.wline.d{background:#7C3AED}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.tc{background:#fff;border:1.5px solid #e8e3f8;border-radius:16px;padding:16px;cursor:pointer;transition:all .2s}
+.tc:hover{border-color:rgba(124,58,237,.4)}
+.tc.on{border-color:#7C3AED;background:rgba(124,58,237,.04);box-shadow:0 0 0 3px rgba(124,58,237,.12)}
+.tc-i{font-size:30px;margin-bottom:8px}
+.tc h4{font-family:"Outfit",sans-serif;font-weight:800;font-size:13.5px;color:#1a1a2e;margin-bottom:3px}
+.tc p{font-size:12px;color:#9090b0;line-height:1.4}
+.gbrow{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px}
+.gb{padding:9px 3px;border-radius:9px;border:1.5px solid #e8e3f8;background:#fff;font-size:13px;font-weight:700;cursor:pointer;text-align:center;color:#4a4a6a;flex:1;min-width:38px;font-family:"Inter",sans-serif;transition:all .15s}
+.gb:hover{border-color:#7C3AED;color:#7C3AED}
+.gb.on{background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border-color:transparent}
+.erow{display:flex;align-items:center;gap:12px;padding:13px 16px;border:1.5px solid #e8e3f8;border-radius:12px;cursor:pointer;background:#fff;margin-bottom:9px;transition:all .18s}
+.erow:hover{border-color:rgba(124,58,237,.35)}
+.erow.on{border-color:#7C3AED;background:rgba(124,58,237,.04)}
+.echk{width:24px;height:24px;border-radius:7px;border:2px solid #d8d4ef;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:900}
+.echk.on{background:linear-gradient(135deg,#7C3AED,#EC4899);border-color:transparent;color:#fff}
+.el{flex:1;font-size:15px;font-weight:500;color:#1a1a2e}
+.erow.on .el{color:#7C3AED;font-weight:700}
+.egs{padding:8px 10px;border:1.5px solid #e8e3f8;border-radius:9px;font-size:13px;font-family:"Inter",sans-serif;outline:none;background:#fff;color:#1a1a2e;width:84px;flex-shrink:0;cursor:pointer}
+.rhero{background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:18px;padding:24px;color:#fff;margin-bottom:16px;overflow:hidden;position:relative}
+.ragg{font-family:"Outfit",sans-serif;font-weight:900;font-size:68px;line-height:1;color:#fff}
+.rstats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+.rs{background:rgba(255,255,255,.14);border-radius:12px;padding:12px 8px;text-align:center}
+.rs-n{font-family:"Outfit",sans-serif;font-weight:900;font-size:22px;color:#fff}
+.rs-l{font-size:10.5px;color:rgba(255,255,255,.8);margin-top:3px}
+.rtabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:16px;scrollbar-width:none;padding-bottom:2px}
+.rtabs::-webkit-scrollbar{display:none}
+.rtab{padding:9px 16px;border-radius:50px;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;border:1.5px solid #e8e3f8;background:#fff;color:#4a4a6a;font-family:"Inter",sans-serif;transition:all .15s}
+.rtab.on{background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border-color:transparent}
+.prog{background:#fff;border:1.5px solid #e8e3f8;border-radius:16px;padding:18px;margin-bottom:12px}
+.prog.q{border-left:4px solid #10b981}
+.prog.n{border-left:4px solid #f59e0b}
+.prog.b{border-left:4px solid #fca5a5}
+.pname{font-weight:800;font-size:16px;color:#1a1a2e;margin-bottom:8px}
+.pmeta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.bdg{display:inline-flex;align-items:center;padding:3px 11px;border-radius:99px;font-size:12px;font-weight:700;white-space:nowrap}
+.bp{background:rgba(124,58,237,.12);color:#7C3AED}
+.bg{background:rgba(16,185,129,.1);color:#10b981}
+.br{background:rgba(239,68,68,.08);color:#ef4444}
+.ba{background:rgba(245,158,11,.09);color:#f59e0b}
+.bgr{background:rgba(0,0,0,.06);color:#4a4a6a}
+.why{background:#f0fdf4;border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:13.5px;color:#166534;line-height:1.65}
+.iss{background:#fff5f5;border:1px solid rgba(239,68,68,.15);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:13.5px;color:#991b1b;line-height:1.65}
+.career{background:rgba(124,58,237,.05);border:1px solid rgba(124,58,237,.12);border-radius:10px;padding:12px 16px;margin-top:12px}
+.career-lbl{font-size:11px;font-weight:800;color:#7C3AED;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}
+.career-txt{font-size:13.5px;color:#4a4a6a;line-height:1.65}
+.mov{display:none;position:fixed;inset:0;background:rgba(10,5,30,.7);z-index:600;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
+.mov.on{display:flex}
+.modal{background:#fff;border-radius:18px;padding:26px;width:100%;max-width:460px;max-height:92vh;overflow-y:auto;position:relative}
+.modal h3{font-family:"Outfit",sans-serif;font-weight:900;font-size:21px;color:#1a1a2e;margin-bottom:16px}
+.prow{display:flex;align-items:center;gap:14px;padding:15px 18px;border:2px solid #e8e3f8;border-radius:16px;margin-bottom:11px;cursor:pointer;position:relative;transition:all .15s}
+.prow:hover{border-color:rgba(124,58,237,.4)}
+.prow.on{border-color:#7C3AED;background:rgba(124,58,237,.04)}
+.pi{font-size:24px;flex-shrink:0}
+.pin{flex:1}
+.pname2{font-weight:700;font-size:15.5px;color:#1a1a2e}
+.pdesc{font-size:13.5px;color:#4a4a6a;margin-top:2px}
+.prad{width:22px;height:22px;border-radius:50%;border:2px solid #d4d0f0;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;transition:all .15s}
+.prow.on .prad{background:#7C3AED;border-color:#7C3AED}
+.chat-msgs{display:flex;flex-direction:column;gap:10px;padding-bottom:16px}
+.cai{padding:13px 17px;border-radius:16px 16px 16px 4px;max-width:86%;font-size:14.5px;line-height:1.65;background:#fff;border:1px solid rgba(124,58,237,.12);color:#1a1a2e;align-self:flex-start}
+.cuser{padding:13px 17px;border-radius:16px 16px 4px 16px;max-width:86%;font-size:14.5px;line-height:1.65;background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;align-self:flex-end}
+.stk{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(24px);border-top:1px solid rgba(124,58,237,.1);padding:10px 14px;display:flex;gap:8px;z-index:200}
+footer{background:#0f172a;padding:56px 20px 32px}
+.ftg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto}
+.fthead{font-size:11px;font-weight:800;color:#f1f5f9;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px}
+.fta{font-size:14px;color:#475569;cursor:pointer;padding:5px 0;display:block}
+.fta:hover{color:#e2e8f0}
+.ftbot{border-top:1px solid rgba(255,255,255,.07);margin-top:40px;padding-top:26px;max-width:1100px;margin-left:auto;margin-right:auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.team-card{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid rgba(124,58,237,.1);border-radius:16px;padding:22px;margin-bottom:16px}
+.team-photo{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid rgba(124,58,237,.2);flex-shrink:0;background:linear-gradient(135deg,#7C3AED,#EC4899)}
+@media(max-width:700px){.ftg{grid-template-columns:1fr 1fr}.rstats{grid-template-columns:repeat(4,1fr)}.tgrid{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}
+@media(max-width:380px){.rstats{grid-template-columns:repeat(2,1fr)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+<script src="https://js.paystack.co/v1/inline.js" onerror="window._psErr=true"></script>
+</head>
+<body>
+
+<div class="ann">
+  <div class="ann-t">🎓 2025/2026 Admissions Open — UG, KNUST, UCC, GIMPA now accepting applications</div>
+  <div class="ann-l" onclick="go('forms')">View All →</div>
+</div>
+
+<nav class="nav">
+  <div class="nlogo" onclick="go('home')">
+    <div class="nlogo-box">🎓</div>
+    <div class="nlogo-txt">Uni<b>Predict</b></div>
+  </div>
+  <div class="nlinks">
+    <a onclick="go('checker')">Check Eligibility</a>
+    <a onclick="go('universities')">Universities</a>
+    <a onclick="go('cutoffs')">Cut-Offs</a>
+    <a onclick="go('scholarships')">Scholarships</a>
+    <a onclick="go('aiChat')">AI Counsellor</a>
+    <a onclick="go('about')">About</a>
+  </div>
+  <div class="nbtns">
+    <button class="btn btnw bsm" onclick="go('checker')">Sign In</button>
+    <button class="btn btng bsm" onclick="go('checker')">Get Started →</button>
+  </div>
+  <button class="ham" onclick="toggleMenu()">☰</button>
+</nav>
+
+<div class="mmenu" id="mm">
+  <a onclick="go('checker')">🔍 Check Eligibility</a>
+  <a onclick="go('calculator')">📐 Calculate Aggregate</a>
+  <a onclick="go('universities')">🏛️ Universities</a>
+  <a onclick="go('programs')">📚 Programmes</a>
+  <a onclick="go('cutoffs')">📊 Cut-Off Points</a>
+  <a onclick="go('scholarships')">🎓 Scholarships</a>
+  <a onclick="go('forms')">📝 Admission Forms</a>
+  <a onclick="go('news')">📰 News</a>
+  <a onclick="go('aiChat')">🤖 AI Counsellor</a>
+  <a onclick="go('pricing')">💳 Pricing</a>
+  <a onclick="go('about')">ℹ️ About</a>
+  <a onclick="go('contact')">📱 Contact</a>
+  <a onclick="go('faq')">❓ FAQ</a>
+  <div class="mcta">
+    <strong>🎓 Check Your Eligibility Now</strong>
+    <small>Basic · Premium · Bundle</small>
+    <button class="btn bfull blg" style="background:#fff;color:#7C3AED;border-radius:50px;border:none;padding:13px" onclick="go('checker')">Start My Check →</button>
+  </div>
+</div>
+
+<!-- HOME -->
+
+<div id="pg-home" class="page on">
+  <div class="hero">
+    <div class="hero-in">
+      <div class="badge">● Ghana's #1 University Admission Platform</div>
+      <h1>Predict. Match.<br><span class="ac">Achieve.</span></h1>
+      <p>Enter your WASSCE results and instantly discover every university and programme you qualify for across <strong><span id="uni-count">74</span> institutions</strong>. Subject combination verified. Ranked by best match.</p>
+      <div class="hbtns">
+        <button class="btn btng blg bfull" onclick="go('checker')">🔍 Check My Eligibility →</button>
+        <button class="btn btno blg bfull" onclick="go('calculator')">📐 Calculate Aggregate</button>
+      </div>
+      <div class="htrust">
+        <span>✓ Real subject checks</span><span>✓ <span id="prog-count">1,000+</span> programmes</span><span>✓ 2026 cut-off data</span><span>✓ Free to browse</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker"><div class="twrap" id="ticker-in"></div></div>
+
+  <div class="sec" style="background:#ffffff!important">
+    <div class="sin" style="text-align:center">
+      <div class="tag">How It Works</div>
+      <h2>3 Steps to Know Your Options</h2>
+      <p class="sub">From results to university matches in under 2 minutes</p>
+      <div class="steps">
+        <div class="step"><div class="sn">1</div><div style="font-size:26px;margin-bottom:12px">📝</div><h3>Enter Your Grades</h3><p>Select your SHS track and enter WASSCE results — core subjects and electives.</p></div>
+        <div class="step"><div class="sn">2</div><div style="font-size:26px;margin-bottom:12px">💳</div><h3>Pay Securely</h3><p>Basic · Premium · Bundle. MTN MoMo, Vodafone, Card.</p></div>
+        <div class="step"><div class="sn">3</div><div style="font-size:26px;margin-bottom:12px">🎯</div><h3>Get Results</h3><p>Every programme you qualify for, ranked by eligibility with cut-offs and career paths.</p></div>
+      </div>
+      <button class="btn btng blg" style="margin-top:28px" onclick="go('checker')">Start My Free Check →</button>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sin">
+      <div style="text-align:center;margin-bottom:28px">
+        <div class="tag">Everything You Need</div>
+        <h2>Built for Ghanaian Students</h2>
+      </div>
+      <div class="g2">
+        <div class="fc" onclick="go('checker')"><div class="fc-ic" style="background:#7C3AED15">🎯</div><h3>Eligibility Checker</h3><p>Official WASSCE formula. Programme-specific for all universities.</p></div>
+        <div class="fc" onclick="go('aiChat')"><div class="fc-ic" style="background:#f59e0b15">🤖</div><h3>AI Counsellor</h3><p>Personalised advice on programmes and career paths. Powered by AI.</p></div>
+        <div class="fc" onclick="go('scholarships')"><div class="fc-ic" style="background:#10b98115">🎓</div><h3>Scholarships</h3><p>GETFUND, Mastercard Foundation, MTN Ghana and more — apply directly.</p></div>
+        <div class="fc" onclick="go('cutoffs')"><div class="fc-ic" style="background:#3b82f615">📊</div><h3>Cut-Off Points</h3><p>Official 2025/2026 cut-off aggregates from university publications.</p></div>
+        <div class="fc" onclick="go('universities')"><div class="fc-ic" style="background:#EC489915">🏛️</div><h3>Universities</h3><p>Browse all accredited Ghanaian universities with details.</p></div>
+        <div class="fc" onclick="go('forms')"><div class="fc-ic" style="background:#8b5cf615">📝</div><h3>Admission Forms</h3><p>Track form openings, deadlines and portal links in one place.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="psec">
+    <div style="text-align:center;margin-bottom:28px">
+      <h2 style="color:#fff;font-family:Outfit,sans-serif">Simple, Affordable Pricing</h2>
+      <p style="color:rgba(255,255,255,.85);font-size:15px;margin-top:6px">No subscription. No hidden fees. Pay only when you need a check.</p>
+    </div>
+    <div class="pgrid">
+      <div class="pc" onclick="go('checker')"><div class="pc-i">🏛️</div><h3 data-price-basic>GHC12</h3><strong>Basic</strong><span>1 University</span></div>
+      <div class="pc pop" onclick="go('checker')"><div class="pcb">POPULAR</div><div class="pc-i">⭐</div><h3 data-price-premium>GHC26</h3><strong>Premium</strong><span>All Universities</span></div>
+      <div class="pc" onclick="go('checker')"><div class="pc-i">🔥</div><h3 data-price-bundle>GHC32</h3><strong>Bundle</strong><span>3 Checks</span></div>
+    </div>
+    <div style="text-align:center">
+      <button class="btn blg" style="background:#fff;color:#7C3AED;border:none;border-radius:50px" onclick="go('checker')">Check My Eligibility Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKER -->
+
+<div id="pg-checker" class="page">
+  <div style="max-width:700px;margin:0 auto;padding:20px">
+    <div class="card" style="margin-bottom:14px;display:flex;gap:14px;align-items:flex-start">
+      <div style="font-size:38px;flex-shrink:0">🎓</div>
+      <div><h2 style="font-size:20px;margin-bottom:4px">University Eligibility Checker</h2><p style="font-size:13px;color:#4a4a6a">Full subject verification · Ranked results · 74 universities · 2,500+ programmes</p></div>
+    </div>
+    <div class="card" style="margin-bottom:14px;padding:16px 20px"><div class="wiz" id="wiz"></div></div>
+    <div id="chk-body"></div>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+
+<div id="pg-calculator" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">Calculator</div>
+    <h2 style="margin-bottom:6px">Calculate Your Aggregate</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Enter your grades — we calculate your best-6 WASSCE aggregate.</p>
+    <div class="card" style="margin-bottom:14px">
+      <div class="fg"><label class="lbl">SHS Track</label>
+      <select class="sel" id="ct" onchange="buildCalcEls()">
+        <option>General Science</option><option>General Arts</option><option>Business</option>
+        <option>Home Economics</option><option>Visual Arts</option><option>Technical</option><option>Agricultural Science</option>
+      </select></div>
+      <div id="calc-core"></div>
+      <div id="calc-els"></div>
+    </div>
+    <div id="calc-res" style="display:none;background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:18px;padding:28px;text-align:center;margin-bottom:16px">
+      <div style="font-size:12px;font-weight:700;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">YOUR AGGREGATE</div>
+      <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:80px;color:#fff;line-height:1" id="cnum">—</div>
+      <div style="font-size:14px;color:rgba(255,255,255,.9);margin-top:14px" id="clbl"></div>
+    </div>
+    <button class="btn btng bfull blg" onclick="go('checker')">Get Full Eligibility Report →</button>
+  </div></div>
+</div>
+
+<!-- UNIVERSITIES -->
+
+<div id="pg-universities" class="page">
+  <div class="sec"><div class="sin wide">
+    <div class="tag" style="margin-bottom:10px">Universities</div>
+    <h2 style="margin-bottom:16px"><span id="uni-count2">74</span> Accredited Universities</h2>
+    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+      <input class="inp" id="us" placeholder="Search universities..." oninput="renderUnis()" style="flex:1;min-width:200px"/>
+      <select class="sel" id="ut" onchange="renderUnis()" style="width:auto;min-width:140px"><option value="">All Types</option><option>Public</option><option>Private</option><option>Technical</option></select>
+    </div>
+    <div class="g2" id="uni-grid"></div>
+  </div></div>
+</div>
+
+<!-- PROGRAMMES -->
+
+<div id="pg-programs" class="page">
+  <div class="sec"><div class="sin wide">
+    <div class="tag" style="margin-bottom:10px">Programmes</div>
+    <h2 style="margin-bottom:16px">1,000+ Programmes</h2>
+    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+      <input class="inp" id="ps" placeholder="Search programmes..." oninput="renderProgs()" style="flex:1;min-width:200px"/>
+      <select class="sel" id="pu" onchange="renderProgs()" style="width:auto;min-width:140px"><option value="">All Universities</option></select>
+    </div>
+    <div id="prog-list"></div>
+  </div></div>
+</div>
+
+<!-- CUTOFFS -->
+
+<div id="pg-cutoffs" class="page">
+  <div class="sec"><div class="sin wide">
+    <div class="tag" style="margin-bottom:10px">Cut-Off Points</div>
+    <h2 style="margin-bottom:6px">2025/2026 Cut-Off Aggregates</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Official data. Always verify with universities before applying.</p>
+    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+      <input class="inp" id="cs" placeholder="Search programmes..." oninput="renderCO()" style="flex:1;min-width:200px"/>
+      <select class="sel" id="cu" onchange="renderCO()" style="width:auto;min-width:140px"><option value="">All Universities</option></select>
+    </div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <thead><tr style="background:#F0EFFE">
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Programme</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">University</th>
+          <th style="padding:12px 14px;text-align:center;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Cut-Off</th>
+        </tr></thead>
+        <tbody id="co-body"></tbody>
+      </table>
+    </div>
+  </div></div>
+</div>
+
+<!-- SCHOLARSHIPS -->
+
+<div id="pg-scholarships" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">Scholarships</div>
+    <h2 style="margin-bottom:6px">Available Scholarships</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Funding opportunities for Ghanaian university students</p>
+    <div id="schol-list"></div>
+  </div></div>
+</div>
+
+<!-- FORMS -->
+
+<div id="pg-forms" class="page">
+  <div class="sec"><div class="sin wide">
+    <div class="tag" style="margin-bottom:10px">Admission Forms</div>
+    <h2 style="margin-bottom:6px">Admission Forms Tracker</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Track form opening status and deadlines for all universities</p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:500px">
+        <thead><tr style="background:#F0EFFE">
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">University</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Status</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Deadline</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Fee</th>
+          <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:700;color:#9090b0;text-transform:uppercase;border-bottom:1.5px solid rgba(124,58,237,.12)">Action</th>
+        </tr></thead>
+        <tbody id="forms-body"></tbody>
+      </table>
+    </div>
+  </div></div>
+</div>
+
+<!-- NEWS -->
+
+<div id="pg-news" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">News</div>
+    <h2 style="margin-bottom:16px">Latest Updates</h2>
+    <div id="news-list"></div>
+  </div></div>
+</div>
+
+<!-- AI CHAT -->
+
+<div id="pg-aiChat" class="page">
+  <div style="max-width:700px;margin:0 auto;padding:20px 20px 0">
+    <div class="tag" style="margin-bottom:8px">AI Counsellor</div>
+    <h2 style="margin-bottom:4px">UniPredict AI Counsellor</h2>
+    <p style="font-size:13.5px;color:#4a4a6a;margin-bottom:16px">Ask anything about university admissions in Ghana</p>
+  </div>
+  <div style="max-width:700px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;height:calc(100vh - 280px)">
+    <div id="chat-msgs" class="chat-msgs" style="flex:1;overflow-y:auto"></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;padding:10px 0">
+      <button class="btn btnw bsm" onclick="sendChat('What is my aggregate?')">What is my aggregate?</button>
+      <button class="btn btnw bsm" onclick="sendChat('KNUST cut-offs 2025')">KNUST cut-offs</button>
+      <button class="btn btnw bsm" onclick="sendChat('What scholarships can I apply for?')">Scholarships</button>
+      <button class="btn btnw bsm" onclick="sendChat('Best programmes for General Science track')">Best programmes</button>
+    </div>
+    <div style="display:flex;gap:10px;padding:12px 0;border-top:1px solid rgba(124,58,237,.1)">
+      <input class="inp" id="chat-inp" placeholder="Ask about programmes, cut-offs, scholarships..." style="flex:1" onkeydown="if(event.key==='Enter')sendChat()"/>
+      <button class="btn btng bmd" onclick="sendChat()">Send →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+
+<div id="pg-pricing" class="page">
+  <div class="sec"><div class="sin">
+    <div style="text-align:center;margin-bottom:36px">
+      <div class="tag" style="margin-bottom:12px">Pricing</div>
+      <h2>Simple, Affordable Pricing</h2>
+      <p class="sub">No subscription. No hidden fees. Pay only when you need a check.</p>
+    </div>
+    <div class="g3" style="margin-bottom:28px">
+      <div class="card" style="position:relative">
+        <div style="font-size:30px;margin-bottom:12px">🏛️</div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:32px;color:#7C3AED;margin-bottom:3px" data-price-basic>GHC12</div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:3px">Basic</div>
+        <div style="font-size:13.5px;color:#4a4a6a;margin-bottom:16px">1 University · 1 Check</div>
+        <div style="margin-bottom:20px">
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>1 university eligibility check</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Full subject verification</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Career paths per programme</div>
+        </div>
+        <button class="btn btno bfull blg" onclick="go('checker')">Get Started →</button>
+      </div>
+      <div class="card" style="position:relative;border:2px solid #7C3AED;box-shadow:0 8px 28px rgba(124,58,237,.18)">
+        <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;font-size:11px;font-weight:800;padding:4px 16px;border-radius:99px;white-space:nowrap">MOST POPULAR</div>
+        <div style="font-size:30px;margin-bottom:12px">⭐</div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:32px;color:#7C3AED;margin-bottom:3px" data-price-premium>GHC26</div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:3px">Premium</div>
+        <div style="font-size:13.5px;color:#4a4a6a;margin-bottom:16px">All Universities · 1 Check</div>
+        <div style="margin-bottom:20px">
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>All universities checked</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Full ranked results</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Scholarship matches</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Career paths & prospects</div>
+        </div>
+        <button class="btn btng bfull blg" onclick="go('checker')">Get Started →</button>
+      </div>
+      <div class="card" style="position:relative">
+        <div style="font-size:30px;margin-bottom:12px">🔥</div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:32px;color:#7C3AED;margin-bottom:3px" data-price-bundle>GHC32</div>
+        <div style="font-weight:700;font-size:17px;margin-bottom:3px">Bundle</div>
+        <div style="font-size:13.5px;color:#4a4a6a;margin-bottom:16px">All Universities · 3 Checks</div>
+        <div style="margin-bottom:20px">
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>3 full premium checks</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Share with friends</div>
+          <div style="font-size:14px;color:#4a4a6a;padding:5px 0;display:flex;gap:8px"><span style="color:#10b981;font-weight:700">✓</span>Best value option</div>
+        </div>
+        <button class="btn btno bfull blg" onclick="go('checker')">Get Started →</button>
+      </div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-weight:700;font-size:15px;color:#1a1a2e;margin-bottom:8px">💳 Accepted Payment Methods</div>
+      <div style="font-size:14px;color:#4a4a6a">📱 MTN MoMo &nbsp;·&nbsp; 📲 Vodafone Cash &nbsp;·&nbsp; 📳 AirtelTigo &nbsp;·&nbsp; 💳 Visa / Mastercard</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ABOUT -->
+
+<div id="pg-about" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">About</div>
+    <h2 style="margin-bottom:16px">About UniPredict Ghana</h2>
+    <div class="card" style="margin-bottom:18px">
+      <h3 style="font-family:Outfit,sans-serif;font-weight:800;font-size:19px;margin-bottom:12px">Our Mission</h3>
+      <p style="font-size:15px;color:#4a4a6a;line-height:1.75;margin-bottom:12px">UniPredict Ghana is Ghana's most comprehensive university admission intelligence platform. We help WASSCE students make informed decisions about their university applications by providing accurate eligibility checks, verified cut-off points, and personalised programme recommendations.</p>
+      <p style="font-size:15px;color:#4a4a6a;line-height:1.75">We cover all accredited Ghanaian universities with over 1,000 programmes, using the official WASSCE aggregate formula to give you precise, programme-specific eligibility results.</p>
+    </div>
+    <h2 style="font-size:24px;margin-bottom:8px">Meet the Team</h2>
+    <p style="font-size:14px;color:#4a4a6a;margin-bottom:20px">Built by young Ghanaians, for Ghanaian students.</p>
+    <div class="team-card">
+      <img class="team-photo" src="https://i.imgur.com/6dQfNZr.jpeg" alt="Alexander Piasa Asiamah" onerror="this.style.display='none'"/>
+      <div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:18px;color:#1a1a2e;margin-bottom:6px">Alexander Piasa Asiamah</div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px"><span class="bdg bp">Founder & CEO</span><span class="bdg bp">CTO</span></div>
+        <p style="font-size:14px;color:#4a4a6a;line-height:1.7">Visionary behind UniPredict Ghana. Alexander built the platform from the ground up with a mission to make university admissions transparent and accessible for every Ghanaian student.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img class="team-photo" src="https://i.imgur.com/0zoQrig.jpeg" alt="Gideon Appianing" onerror="this.style.display='none'"/>
+      <div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:18px;color:#1a1a2e;margin-bottom:6px">Gideon Appianing</div>
+        <div style="display:flex;gap:7px;margin-bottom:10px"><span class="bdg bp">Co-CTO</span></div>
+        <p style="font-size:14px;color:#4a4a6a;line-height:1.7">Co-Chief Technology Officer at UniPredict Ghana. Gideon brings deep technical expertise to ensure the platform is robust, fast and reliable for thousands of Ghanaian students.</p>
+      </div>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,#7C3AED,#EC4899);border:none;margin-top:4px">
+      <div style="font-weight:800;font-size:16px;color:#fff;margin-bottom:5px">🇬🇭 Made in Ghana</div>
+      <div style="font-size:14px;color:rgba(255,255,255,.88)">Built by Ghanaians for Ghanaian students. We understand the challenges of university admissions in Ghana and are committed to making the process clearer and fairer for every student.</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- CONTACT -->
+
+<div id="pg-contact" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">Contact</div>
+    <h2 style="margin-bottom:16px">Contact Us</h2>
+    <div class="g3" style="margin-bottom:22px">
+      <div class="card" style="text-align:center"><div style="font-size:30px;margin-bottom:10px">📧</div><div style="font-weight:700;font-size:13.5px;margin-bottom:3px;color:#1a1a2e">Email</div><div style="font-size:13.5px;color:#4a4a6a">UniPredictghana@gmail.com</div></div>
+      <div class="card" style="text-align:center"><div style="font-size:30px;margin-bottom:10px">📱</div><div style="font-weight:700;font-size:13.5px;margin-bottom:3px;color:#1a1a2e">WhatsApp</div><div style="font-size:13.5px;color:#4a4a6a">0537 889 150</div></div>
+      <div class="card" style="text-align:center"><div style="font-size:30px;margin-bottom:10px">🕐</div><div style="font-weight:700;font-size:13.5px;margin-bottom:3px;color:#1a1a2e">Response Time</div><div style="font-size:13.5px;color:#4a4a6a">Within 24 hours</div></div>
+    </div>
+    <div class="card">
+      <h3 style="font-family:Outfit,sans-serif;font-weight:800;font-size:19px;margin-bottom:18px">Send a Message</h3>
+      <div class="fg"><label class="lbl">Your Name</label><input class="inp" id="cn" placeholder="e.g. Kofi Mensah"/></div>
+      <div class="fg"><label class="lbl">Email (optional)</label><input class="inp" id="ce" type="email" placeholder="your@email.com"/></div>
+      <div class="fg"><label class="lbl">Message</label><textarea class="ta" id="cm" placeholder="How can we help you?"></textarea></div>
+      <button class="btn btng bfull blg" onclick="doContact()">Send Message →</button>
+    </div>
+  </div></div>
+</div>
+
+<!-- FAQ -->
+
+<div id="pg-faq" class="page">
+  <div class="sec"><div class="sin">
+    <div class="tag" style="margin-bottom:10px">FAQ</div>
+    <h2 style="margin-bottom:22px">Frequently Asked Questions</h2>
+    <div id="faq-list"></div>
+  </div></div>
+</div>
+
+<!-- PAY MODAL -->
+
+<div class="mov" id="pay-modal">
+  <div class="modal">
+    <button onclick="closeModal()" style="position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;font-size:22px;color:#9090b0;line-height:1">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- STICKY -->
+
+<div class="stk" id="stk">
+  <button class="btn btng bsm bfull" style="flex:1;padding:12px 8px;font-size:14px;border-radius:50px" onclick="go('checker')">🔍 Check Eligibility</button>
+  <button class="btn btnw bsm" style="flex:1;padding:12px 8px;font-size:13px;border-radius:50px" onclick="go('aiChat')">🤖 AI Counsellor</button>
+  <button class="btn btnw bsm" style="flex:1;padding:12px 8px;font-size:13px;border-radius:50px" onclick="go('pricing')">💳 Pricing</button>
+</div>
+
+<footer>
+  <div class="ftg">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;cursor:pointer" onclick="go('home')">
+        <div style="width:32px;height:32px;background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px">🎓</div>
+        <div style="font-family:Outfit,sans-serif;font-weight:900;font-size:17px;color:#fff">UniPredict Ghana</div>
+      </div>
+      <p style="font-size:14px;color:#475569;line-height:1.75;max-width:260px;margin-bottom:16px">Ghana's university admission intelligence platform. 74+ institutions, 2,500+ programmes.</p>
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);border-radius:99px;padding:5px 13px;font-size:12px;font-weight:700;color:#34d399">● Live 2026</div>
+      <div style="font-size:13.5px;color:#475569;margin-top:10px">🇬🇭 Made in Ghana</div>
+    </div>
+    <div>
+      <div class="fthead">Resources</div>
+      <a class="fta" onclick="go('checker')">Check Eligibility</a>
+      <a class="fta" onclick="go('calculator')">Calculator</a>
+      <a class="fta" onclick="go('universities')">Universities</a>
+      <a class="fta" onclick="go('cutoffs')">Cut-Off Points</a>
+      <a class="fta" onclick="go('scholarships')">Scholarships</a>
+    </div>
+    <div>
+      <div class="fthead">Company</div>
+      <a class="fta" onclick="go('about')">About Us</a>
+      <a class="fta" onclick="go('contact')">Contact</a>
+      <a class="fta" onclick="go('faq')">FAQ</a>
+      <a class="fta" onclick="go('pricing')">Pricing</a>
+      <a class="fta" onclick="go('news')">News</a>
+    </div>
+    <div>
+      <div class="fthead">Legal</div>
+      <a class="fta" onclick="alert('Privacy Policy: Email UniPredictghana@gmail.com')">Privacy Policy</a>
+      <a class="fta" onclick="alert('Not affiliated with any Ghanaian university or WAEC')">Terms of Service</a>
+      <a class="fta" onclick="alert('Cut-offs are for reference only. Verify with universities before applying.')">Disclaimer</a>
+      <a class="fta" onclick="alert('Refund Policy: Email UniPredictghana@gmail.com within 48 hours')">Refund Policy</a>
+    </div>
+  </div>
+  <div class="ftbot">
+    <div style="font-size:13px;color:#334155">© 2025 UniPredict Ghana. All rights reserved. · PREDICT. MATCH. ACHIEVE.</div>
+    <div style="display:flex;gap:16px">
+      <span onclick="go('about')" style="font-size:13px;color:#334155;cursor:pointer;text-decoration:underline">About</span>
+      <span onclick="go('contact')" style="font-size:13px;color:#334155;cursor:pointer;text-decoration:underline">Contact</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================
+// DATA
+// ============================================
+var GR=["A1","B2","B3","C4","C5","C6","D7","E8","F9"];
+var GP={A1:1,B2:2,B3:3,C4:4,C5:5,C6:6,D7:7,E8:8,F9:9};
+
+var TRK={
+  "General Science":{i:"",s:"Biology, Chemistry, Physics, Elective Maths",e:["Biology","Chemistry","Physics","Elective Mathematics","Geography","Agricultural Science","ICT / Computing"]},
+  "General Arts":{i:"",s:"Literature, Government, History, Economics",e:["Literature in English","Government","History","Economics","French","Geography","Christian Religious Studies","Islamic Religious Studies","Twi","Ga","Arabic"]},
+  "Business":{i:"",s:"Financial Accounting, Economics, Business Mgt",e:["Financial Accounting","Business Management","Economics","Elective Mathematics","Cost Accounting","Clerical Office Duties","ICT / Computing","Business Law"]},
+  "Home Economics":{i:"",s:"Food & Nutrition, Clothing & Textiles",e:["Food and Nutrition","Clothing and Textiles","Management in Living","Biology","Chemistry","Economics"]},
+  "Visual Arts":{i:"",s:"General Knowledge in Art, Graphic Design",e:["General Knowledge in Art","Graphic Design","Picture Making","Sculpture","Textiles","Basketry","Leatherwork","Jewellery"]},
+  "Technical":{i:"",s:"Technical Drawing, Applied Electricity",e:["Technical Drawing","Construction","Metalwork","Applied Electricity","Electronics","Auto Mechanics","Physics","Elective Mathematics","Plumbing"]},
+  "Agricultural Science":{i:"",s:"Crop Husbandry, Animal Husbandry",e:["Crop Husbandry & Horticulture","Animal Husbandry","Fisheries","Forestry & Wildlife","Elective Mathematics","Biology","Chemistry"]}
+};
+
+var UNIS=[], PROGS=[], SCHOLS=[], FORMS=[], NEWS=[];
+
+var _SITE_SETTINGS = {};
+var _PRICING = {};
+var _PAYSTACK_KEY = ""; // loaded from Supabase settings
+
+function loadFromSupabase() {
+  var base = SUPA_URL + "/rest/v1/";
+  var h = {"apikey":SUPA_KEY,"Authorization":"Bearer "+SUPA_KEY};
+  // Load site settings
+  fetch(base+"settings?key=in.(site,pricing,payment_keys,tracks)&select=key,value", {headers:h})
+    .then(function(r){return r.json();}).then(function(d){
+      if(!d||!d.length) return;
+      d.forEach(function(row){
+        if(row.key==="site")         _SITE_SETTINGS = row.value||{};
+        if(row.key==="pricing")      _PRICING = row.value||{};
+        if(row.key==="payment_keys" && row.value && row.value.paystack) _PAYSTACK_KEY = row.value.paystack;
+        if(row.key==="tracks" && row.value) {
+          // Update TRK electives from admin settings
+          Object.keys(row.value).forEach(function(tname){
+            if(TRK[tname] && row.value[tname].e) TRK[tname].e = row.value[tname].e;
+          });
+        }
+      });
+    }).catch(function(){});
+  // Load universities
+  fetch(base+"universities?active=eq.true&order=name.asc&select=id,code,name,location,type&limit=1000", {headers:h})
+    .then(function(r){return r.json();}).then(function(d){
+      if(d && d.length){
+        UNIS = d.map(function(u){return {code:u.code,name:u.name,loc:u.location||"",type:u.type||"Public"};});
+        var uct=document.getElementById("uni-count");
+        if(uct) uct.textContent=UNIS.length;
+        var uct2=document.getElementById("uni-count2");
+        if(uct2) uct2.textContent=UNIS.length;
+        // If user is already waiting on step5, re-render now
+        if(S&&S.step===5){showStep(5);}
+      }
+    }).catch(function(){});
+  // Load programmes
+  // First load all universities to build a lookup map
+  fetch(base+"universities?active=eq.true&select=id,code&limit=1000",{headers:h}).then(function(r){return r.json();}).then(function(unis){
+    var umap={};(unis||[]).forEach(function(u){umap[u.id]=u.code;});
+    (function fetchAllProgs(offset){
+      var url=base+"programmes?active=eq.true&order=name.asc&select=id,name,university_id,cutoff,required_track,careers&offset="+offset+"&limit=1000";
+      fetch(url,{headers:h}).then(function(r){return r.json();}).then(function(d){
+        if(d&&d.length){
+          var mapped=d.map(function(p){return{name:p.name,uni:umap[p.university_id]||"?",co:p.cutoff||36,track:Array.isArray(p.required_track)?p.required_track:(p.required_track?[p.required_track]:[]),career:p.careers||""};});
+          PROGS=PROGS.concat(mapped);
+          var pct=document.getElementById("prog-count");
+          if(pct) pct.textContent=PROGS.length+"+";
+          if(d.length===1000) fetchAllProgs(offset+1000);
+        }
+      }).catch(function(){});
+    })(0);
+  }).catch(function(){});
+  // Load settings (prices, counts)
+  fetch(base+'settings?key=in.("price_basic","price_premium","price_bundle","basic_name","premium_name","bundle_name")&select=key,value', {headers:h})
+    .then(function(r){return r.json();}).then(function(d){
+      if(d&&d.length){
+        d.forEach(function(s){
+          if(s.key==="price_basic") CFG.price_basic=parseInt(s.value)||12;
+          if(s.key==="price_premium") CFG.price_premium=parseInt(s.value)||26;
+          if(s.key==="price_bundle") CFG.price_bundle=parseInt(s.value)||32;
+          if(s.key==="basic_name") CFG.basic_name=s.value||"Basic";
+          if(s.key==="premium_name") CFG.premium_name=s.value||"Premium";
+          if(s.key==="bundle_name") CFG.bundle_name=s.value||"Bundle";
+        });
+        updatePriceDisplay();
+      }
+    }).catch(function(){});
+  // Load scholarships
+  fetch(base+"scholarships?order=name.asc&select=*&limit=500", {headers:h})
+    .then(function(r){return r.json();}).then(function(d){
+      if(d && d.length) SCHOLS = d.map(function(s){
+        return {name:s.name,org:s.organization||"",amount:s.amount||"",deadline:s.deadline||"",status:s.status||"open"};
+      });
+    }).catch(function(){});
+  // Load news
+  fetch(base+"news?published=eq.true&order=created_at.desc&select=*&limit=20", {headers:h})
+    .then(function(r){return r.json();}).then(function(d){
+      if(d && d.length) NEWS = d.map(function(n){
+        return {t:n.title,cat:n.category||"general",hot:n.urgent||false,date:n.created_at?new Date(n.created_at).toLocaleDateString("en-GB",{day:"numeric",month:"short"}):"Recent"};
+      });
+    }).catch(function(){});
+  // Load admission forms
+  fetch(base+"admission_forms?order=updated_at.desc&select=*,universities(name)&limit=50", {headers:h})
+    .then(function(r){return r.json();}).then(function(d){
+      if(d && d.length) FORMS = d.map(function(f){
+        return {uni:f.universities?f.universities.name:"?",status:f.status==="open"?"Open":"Coming Soon",deadline:f.deadline||"TBD",fee:f.fee||"TBD"};
+      });
+    }).catch(function(){});
+}
+
+var FAQS=[
+  {q:"How is my aggregate calculated?",a:"Your WASSCE aggregate is the sum of your best 6 subjects: English Language + Core Mathematics + Integrated Science + your 3 best relevant electives. Social Studies must be passed (minimum C6) but does not count in the aggregate. Lower aggregate = better result."},
+  {q:"What is the difference between Basic and Premium?",a:"Basic checks your eligibility at one specific university you choose. Premium checks all accredited universities at once and shows every programme you qualify for, ranked by eligibility."},
+  {q:"Are the cut-off points official?",a:"Our cut-off points are sourced from official university publications and student union data. They are provided for reference only and may change annually. Always verify directly with the university before applying."},
+  {q:"What if I have 2 sittings?",a:"Select 2 Sittings in Step 3 of the checker. Enter grades for both sittings and we automatically use the better grade for your aggregate calculation."},
+  {q:"Can I check without an account?",a:"Yes. You can complete the full eligibility check without creating an account. Just enter your grades and pay to unlock results."},
+  {q:"Which universities are included?",a:"All accredited Ghanaian public and private universities including UG, KNUST, UCC, GIMPA, UPSA, all technical universities, nursing schools, and teacher training colleges."},
+  {q:"What payment methods are accepted?",a:"MTN Mobile Money, Vodafone Cash, AirtelTigo Money, Visa, and Mastercard - all through Paystack, Ghana's most trusted payment gateway."},
+  {q:"How accurate are the eligibility results?",a:"Our results use the official WASSCE aggregate formula and verified cut-off data. However, universities may apply additional criteria. Always confirm your eligibility directly with your chosen university."}
+];
+
+// ============================================
+// STATE
+// ============================================
+var CFG={
+  price_basic:12,
+  price_premium:26,
+  price_bundle:32,
+  basic_name:"Basic",
+  premium_name:"Premium",
+  bundle_name:"Bundle"
+};
+function updatePriceDisplay(){
+  // Update all price displays on the page
+  var els=document.querySelectorAll("[data-price-basic]");
+  els.forEach(function(e){e.textContent="GHC"+CFG.price_basic;});
+  els=document.querySelectorAll("[data-price-premium]");
+  els.forEach(function(e){e.textContent="GHC"+CFG.price_premium;});
+  els=document.querySelectorAll("[data-price-bundle]");
+  els.forEach(function(e){e.textContent="GHC"+CFG.price_bundle;});
+}
+var S={
+  step:1, track:"", sit:1,
+  cg:{}, el:[], eg:{},
+  scope:"all", prefUni:"",
+  res:null, tab:"q",
+  plan:"premium",
+  phone:"", email:"",
+  chatMsgs:[{r:"ai",t:"Hello! I am UniPredict AI Counsellor. I can help you with WASSCE aggregates, university cut-offs, programme eligibility, scholarships and application strategy across all Ghanaian universities. What would you like to know?"}],
+  calcG:{}
+};
+
+// ============================================
+// NAVIGATION
+// ============================================
+function go(id) {
+  var pages=document.querySelectorAll(".page");
+  for(var i=0;i<pages.length;i++) pages[i].classList.remove("on");
+  var pg=document.getElementById("pg-"+id);
+  if(pg) pg.classList.add("on");
+  window.scrollTo({top:0,behavior:"smooth"});
+  var stk=document.getElementById("stk");
+  if(stk) stk.style.display=(id==="checker"||id==="calculator")?"none":"flex";
+  document.getElementById("mm").classList.remove("open");
+  if(id==="universities") renderUnis();
+  if(id==="programs") renderProgs();
+  if(id==="cutoffs") renderCO();
+  if(id==="scholarships") renderSchols();
+  if(id==="forms") renderForms();
+  if(id==="news") renderNews();
+  if(id==="faq") renderFaq();
+  if(id==="aiChat") renderChat();
+  if(id==="calculator") buildCalc();
+  if(id==="checker"){renderWiz();showStep(S.step);}
+}
+function toggleMenu(){document.getElementById("mm").classList.toggle("open");}
+
+// ============================================
+// TICKER
+// ============================================
+function initTicker(){
+  var items=[
+    {t:"UG 2025/2026 Admissions Open - Deadline Sep 30",hot:true},
+    {t:"KNUST Cut-Off Points Released for 2025",hot:true},
+    {t:"Ghana Scholarship Secretariat Open",hot:false},
+    {t:"WASSCE Jan/Feb Results Accepted",hot:false},
+    {t:"UCC Admissions Open - Oct 15",hot:true},
+    {t:"Mastercard Foundation 2025 Open",hot:false},
+    {t:"UPSA Applications Now Open",hot:true},
+    {t:"Premium Plan: Check All Universities",hot:false},
+    {t:"GIMPA MBA & Law Admissions Open",hot:true},
+    {t:"TotalEnergies STEM Scholarship Open",hot:false}
+  ];
+  var all=items.concat(items);
+  var el=document.getElementById("ticker-in");
+  if(!el) return;
+  el.innerHTML=all.map(function(n){
+    return "<span class='ti"+(n.hot?" hot":"")+"'>"+n.t+"</span>";
+  }).join("");
+}
+
+// ============================================
+// CHECKER
+// ============================================
+var SLBL=["SHS Track","Your Profile","Core Subjects","Electives","Review & Pay","Results"];
+
+function renderWiz(){
+  var el=document.getElementById("wiz");
+  if(!el) return;
+  el.innerHTML=SLBL.map(function(s,i){
+    var n=i+1;
+    var c=n<S.step?"d":n===S.step?"a":"";
+    return "<div class='ws'><div class='wn "+c+"'>"+(n<S.step?"v":n)+"</div>"
+      +"<div class='wl "+c+"'>"+s+"</div>"
+      +(i<5?"<div class='wline "+(n<S.step?"d":"")+"'></div>":"")
+      +"</div>";
+  }).join("");
+}
+
+function showStep(n){
+  S.step=n;
+  renderWiz();
+  var el=document.getElementById("chk-body");
+  if(!el) return;
+  if(n===1) el.innerHTML=step1();
+  if(n===2) el.innerHTML=step2();
+  if(n===3) el.innerHTML=step3();
+  if(n===4) el.innerHTML=step4();
+  if(n===5) el.innerHTML=step5();
+  if(n===6) el.innerHTML=step6();
+}
+
+function step1(){
+  var g=Object.keys(TRK).map(function(t){
+    return "<div class='tc"+(S.track===t?" on":"")+"' onclick='selTrack(\""+t+"\")'>"
+      +"<div class='tc-i'>"+TRK[t].i+"</div><h4>"+t+"</h4><p>"+TRK[t].s+"</p></div>";
+  }).join("");
+  return "<div class='card' style='margin-bottom:14px'>"
+    +"<h2 style='font-size:20px;font-family:Outfit,sans-serif;font-weight:800;margin-bottom:6px'>What is your SHS Track?</h2>"
+    +"<p style='font-size:14px;color:#4a4a6a;margin-bottom:20px'>Your track determines which programmes you are eligible for.</p>"
+    +"<div class='tgrid'>"+g+"</div></div>"
+    +"<button class='btn btng bfull blg' "+(S.track?"":"disabled style='opacity:.5'")+" onclick='if(S.track)showStep(2)'>Continue: Your Profile -></button>";
+}
+function selTrack(t){S.track=t;S.el=[];S.eg={};showStep(1);}
+
+function step2(){
+  return "<div class='card' style='margin-bottom:14px'>"
+    +"<h2 style='font-size:20px;font-family:Outfit,sans-serif;font-weight:800;margin-bottom:16px'>Your Student Profile</h2>"
+    +"<div class='fg'><label class='lbl'>Exam Type</label><select class='sel' id='et'><option>WASSCE</option><option>WASSCE (Nov/Dec)</option><option>GBCE</option></select></div>"
+    +"<div class='fg'><label class='lbl'>Phone Number *</label><input class='inp' id='s2p' type='tel' placeholder='0XX XXX XXXX' value='"+S.phone+"'/></div>"
+    +"<div class='fg'><label class='lbl'>Career Interests (optional)</label><input class='inp' id='s2c' placeholder='e.g. Medicine, Engineering, Law...' value='"+S.career+"'/></div>"
+    +"</div>"
+    +"<div style='display:flex;gap:10px'>"
+    +"<button class='btn btnw bmd' style='min-width:90px' onclick='showStep(1)'><- Back</button>"
+    +"<button class='btn btng blg' style='flex:1' onclick='doStep2()'>Continue: Core Subjects -></button></div>";
+}
+function doStep2(){
+  var p=document.getElementById("s2p");
+  if(p) S.phone=p.value;
+  var c=document.getElementById("s2c");
+  if(c) S.career=c.value;
+  if(!S.phone){alert("Please enter your phone number.");return;}
+  showStep(3);
+}
+
+function step3(){
+  var subs=[{k:"eng",l:"English Language *"},{k:"maths",l:"Core Mathematics *"},{k:"sci",l:"Integrated Science"},{k:"soc",l:"Social Studies"}];
+  var html="<div class='card' style='margin-bottom:14px'>"
+    +"<h2 style='font-size:19px;font-family:Outfit,sans-serif;font-weight:800;margin-bottom:6px'>Core Subject Grades</h2>"
+    +"<p style='font-size:13.5px;color:#4a4a6a;margin-bottom:14px'>If 2 sittings, enter both - we use the best grade automatically.</p>"
+    +"<div style='display:flex;gap:8px;margin-bottom:20px'>"
+    +"<button class='btn bmd' style='flex:1;border-radius:50px;"+(S.sit===1?"background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border:none":"background:#fff;color:#1a1a2e;border:1.5px solid #e0dbf5")+"' onclick='S.sit=1;showStep(3)'>1 Sitting</button>"
+    +"<button class='btn bmd' style='flex:1;border-radius:50px;"+(S.sit===2?"background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border:none":"background:#fff;color:#1a1a2e;border:1.5px solid #e0dbf5")+"' onclick='S.sit=2;showStep(3)'>2 Sittings</button>"
+    +"</div>";
+  subs.forEach(function(s){
+    html+="<div style='margin-bottom:18px'><div style='font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:6px'>"+s.l+"</div>"
+      +(S.sit===2?"<div style='font-size:12px;color:#9090b0;margin-bottom:6px'>Sitting 1 (May/June)</div>":"")
+      +"<div class='gbrow'>"+GR.map(function(g){return "<button class='gb"+(S.cg[s.k]===g?" on":"")+"' onclick='S.cg[\""+s.k+"\"]=\" "+g+"\".trim();showStep(3)'>"+g+"</button>";}).join("")+"</div>";
+    if(S.sit===2){
+      html+="<div style='font-size:12px;color:#9090b0;margin-top:8px;margin-bottom:6px'>Sitting 2 (Nov/Dec)</div>"
+        +"<div class='gbrow'>"+GR.map(function(g){return "<button class='gb"+(S.cg[s.k+"2"]===g?" on":"")+"' onclick='S.cg[\""+s.k+"2\"]=\" "+g+"\".trim();showStep(3)'>"+g+"</button>";}).join("")+"</div>";
+      if(S.cg[s.k]&&S.cg[s.k+"2"]){
+        var best=GP[S.cg[s.k]]<=GP[S.cg[s.k+"2"]]?S.cg[s.k]:S.cg[s.k+"2"];
+        html+="<div style='font-size:12px;color:#10b981;font-weight:700;margin-top:4px'>v Best grade: "+best+"</div>";
+      }
+    }
+    html+="</div>";
+  });
+  html+="</div><div style='display:flex;gap:10px'>"
+    +"<button class='btn btnw bmd' style='min-width:90px' onclick='showStep(2)'><- Back</button>"
+    +"<button class='btn btng blg' style='flex:1' onclick='showStep(4)'>Continue: Electives -></button></div>";
+  return html;
+}
+
+function step4(){
+  var els=S.track&&TRK[S.track]?TRK[S.track].e:[];
+  var ready=S.el.length>=3&&S.el.every(function(e){return !!S.eg[e];});
+  var html="<div class='card' style='margin-bottom:14px'>"
+    +"<h2 style='font-size:19px;font-family:Outfit,sans-serif;font-weight:800;margin-bottom:6px'>Elective Subjects</h2>"
+    +(S.el.length<3?"<div style='background:#fffbeb;border:1px solid rgba(245,158,11,.25);border-radius:10px;padding:11px 14px;margin-bottom:14px;font-size:13.5px;color:#92400e'>! Select at least 3 subjects and set a grade for each. ("+S.el.length+" selected)</div>":"")
+    +els.map(function(e){
+      var on=S.el.indexOf(e)>=0;
+      return "<div class='erow"+(on?" on":"")+"' onclick='togEl(\""+e+"\")'>"
+        +"<div class='echk"+(on?" on":"")+"'>"+(on?"v":"")+"</div>"
+        +"<div class='el'>"+e+"</div>"
+        +(on?"<select class='egs' onclick='event.stopPropagation()' onchange='S.eg[\""+e+"\"]=this.value;showStep(4)'>"
+          +"<option value=''>Grade</option>"
+          +GR.map(function(g){return "<option value='"+g+"'"+(S.eg[e]===g?" selected":"")+">"+g+"</option>";}).join("")
+          +"</select>":"")
+        +"</div>";
+    }).join("")
+    +"</div>"
+    +"<div style='display:flex;gap:10px'>"
+    +"<button class='btn btnw bmd' style='min-width:90px' onclick='showStep(3)'><- Back</button>"
+    +"<button class='btn btng blg' style='flex:1;"+(ready?"":"opacity:.5")+"' "+(ready?"":"disabled")+" onclick='if("+ready+")showStep(5)'>Continue: Review -></button></div>";
+  return html;
+}
+function togEl(e){
+  var i=S.el.indexOf(e);
+  if(i>=0){S.el.splice(i,1);delete S.eg[e];}else S.el.push(e);
+  showStep(4);
+}
+
+function step5(){
+  var uopts=UNIS.map(function(u){return "<option value='"+u.code+"'>"+(u.name.length>42?u.name.slice(0,40)+"...":u.name)+"</option>";}).join("");
+  var rows=[["Track",S.track||"-"],["Electives",S.el.join(", ")||"-"],["English",S.cg.eng||"-"],["Maths",S.cg.maths||"-"],["Science",S.cg.sci||"-"],["Social Studies",S.cg.soc||"-"]];
+  return "<div class='card' style='margin-bottom:14px'>"
+    +"<h2 style='font-size:19px;font-family:Outfit,sans-serif;font-weight:800;margin-bottom:14px'>Review Your Details</h2>"
+    +"<div style='background:#F0EFFE;border-radius:12px;overflow:hidden;margin-bottom:16px'>"
+    +"<table style='width:100%;border-collapse:collapse;font-size:14px'>"
+    +rows.map(function(r,i){return "<tr style='background:"+(i%2===0?"#F0EFFE":"#fff")+"'><td style='padding:10px 14px;color:#9090b0;font-weight:600;width:40%'>"+r[0]+"</td><td style='padding:10px 14px;color:#1a1a2e;font-weight:700'>"+r[1]+"</td></tr>";}).join("")
+    +"</table></div>"
+    +"<div style='background:#fff;border:1.5px solid rgba(124,58,237,.15);border-radius:14px;padding:16px;margin-bottom:14px'>"
+    +"<div style='font-weight:800;font-size:14.5px;color:#1a1a2e;margin-bottom:10px'> Which university do you want to check?</div>"
+    +"<div style='display:flex;gap:8px;margin-bottom:12px'>"
+    +"<button class='btn bsm' style='flex:1;border-radius:50px;"+(S.scope==="all"?"background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border:none":"background:#fff;color:#1a1a2e;border:1.5px solid #e0dbf5")+"' onclick='S.scope=\"all\";showStep(5)'>All Universities</button>"
+    +"<button class='btn bsm' style='flex:1;border-radius:50px;"+(S.scope==="one"?"background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border:none":"background:#fff;color:#1a1a2e;border:1.5px solid #e0dbf5")+"' onclick='S.scope=\"one\";showStep(5)'>Specific University</button>"
+    +"</div>"
+    +(S.scope==="one"?"<select class='sel' id='pu' onchange='S.prefUni=this.value'><option value=''>Select university...</option>"+uopts+"</select>":"")
+    +"</div>"
+    +"<div style='background:rgba(124,58,237,.07);border:1.5px solid rgba(124,58,237,.2);border-radius:14px;padding:16px;margin-bottom:16px'>"
+    +"<div style='display:flex;gap:10px;align-items:flex-start'><span style='font-size:22px'></span>"
+    +"<div><div style='font-weight:800;font-size:14.5px;color:#7C3AED;margin-bottom:4px'>Payment required to unlock results</div>"
+    +"<div style='font-size:14px;color:#4a4a6a'>Choose a plan and pay securely via Mobile Money or card.</div></div></div>"
+    +"</div>"
+    +"<div style='display:flex;gap:10px'>"
+    +"<button class='btn btnw bmd' style='min-width:90px' onclick='showStep(4)'><- Back</button>"
+    +"<button class='btn btng blg' style='flex:1' onclick='openPay()'> Calculate My Results</button></div></div>";
+}
+
+function getBest(k){
+  var g1=S.cg[k]||"",g2=S.cg[k+"2"]||"";
+  if(!g1) return g2;if(!g2) return g1;
+  return GP[g1]<=GP[g2]?g1:g2;
+}
+function calcAgg(){
+  var pts=[];
+  var e=getBest("eng"),m=getBest("maths"),sc=getBest("sci"),so=getBest("soc");
+  if(e) pts.push(GP[e]);
+  if(m) pts.push(GP[m]);
+  S.el.forEach(function(el){if(S.eg[el]) pts.push(GP[S.eg[el]]);});
+  if(sc) pts.push(GP[sc]);
+  pts.sort(function(a,b){return a-b;});
+  var b6=pts.slice(0,6);
+  if(b6.length<6) return null;
+  return b6.reduce(function(s,p){return s+p;},0);
+}
+function runAnal(){
+  var agg=calcAgg();
+  var core={eng:getBest("eng"),maths:getBest("maths"),sci:getBest("sci"),soc:getBest("soc")};
+  var pool=S.scope==="one"?PROGS.filter(function(p){return p.uni===S.prefUni;}):PROGS;
+  var q=[],n=[],b=[];
+  pool.forEach(function(p){
+    var tArr=Array.isArray(p.track)?p.track:(p.track?[p.track]:[]);
+    var tOk=!tArr.length||tArr.indexOf(S.track)>=0;
+    if(!tOk){b.push({p:p,issues:["Track: "+S.track+" does not qualify for this programme"],passes:[]});return;}
+    var iss=[],pass=["Track: "+S.track+" v"];
+    if(core.eng&&GP[core.eng]>6) iss.push("English Language: minimum C6 required");
+    else if(core.eng) pass.push("English Language v");
+    if(core.maths&&GP[core.maths]>8) iss.push("Core Mathematics: minimum D7 required");
+    else if(core.maths) pass.push("Core Mathematics v");
+    if(iss.length>0){b.push({p:p,issues:iss,passes:pass});return;}
+    if(!agg){n.push({p:p,agg:null,issues:["Enter all grades to calculate aggregate"],passes:pass});return;}
+    if(agg<=p.co) q.push({p:p,agg:agg,passes:pass});
+    else n.push({p:p,agg:agg,issues:["Your aggregate ("+agg+") exceeds the cut-off ("+p.co+")"],passes:pass});
+  });
+  q.sort(function(a,b2){return a.agg-b2.agg;});
+  return {agg:agg,q:q,n:n,b:b};
+}
+
+function step6(){
+  var res=runAnal();
+  S.res=res;S.tab="q";
+  return "<div class='rhero'>"
+    +"<div style='display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px'>"
+    +"<div><div style='display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px'>"
+    +"<span class='bdg' style='background:rgba(255,255,255,.2);color:#fff'>v Analysis Complete</span>"
+    +"<span class='bdg' style='background:rgba(255,255,255,.2);color:#fff'>"+S.track+"</span>"
+    +"</div><h2 style='color:#fff;font-size:22px;margin-bottom:6px'>Your Eligibility Results</h2>"
+    +"<div style='font-size:13px;color:rgba(255,255,255,.8)'>"+S.el.join(", ")+"</div></div>"
+    +"<div style='text-align:center;flex-shrink:0;margin-left:12px'>"
+    +"<div style='font-size:11px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px'>AGGREGATE</div>"
+    +"<div class='ragg'>"+(res.agg||"-")+"</div></div></div>"
+    +"<div class='rstats'>"
+    +"<div class='rs'><div class='rs-n'>"+res.q.length+"</div><div class='rs-l'>Qualified</div></div>"
+    +"<div class='rs'><div class='rs-n'>"+res.n.length+"</div><div class='rs-l'>Near Miss</div></div>"
+    +"<div class='rs'><div class='rs-n'>"+res.b.length+"</div><div class='rs-l'>Blocked</div></div>"
+    +"<div class='rs'><div class='rs-n'>"+SCHOLS.length+"</div><div class='rs-l'>Scholarships</div></div>"
+    +"</div></div>"
+    +"<div class='rtabs'>"
+    +[{id:"q",l:"OK Qualified ("+res.q.length+")"},{id:"n",l:" Near Miss ("+res.n.length+")"},{id:"b",l:"! Blocked ("+res.b.length+")"},{id:"s",l:" Scholarships"}].map(function(t){
+      return "<button class='rtab"+(S.tab===t.id?" on":"")+"' onclick='switchTab(\""+t.id+"\")'>"+t.l+"</button>";
+    }).join("")
+    +"</div><div id='res-items'>"+buildItems()+"</div>"
+    +"<div style='display:flex;gap:10px;flex-wrap:wrap;margin-top:14px'>"
+    +"<button class='btn btng bsm' style='border-radius:50px' onclick='downloadResult()'> Download Result</button>"
+    +"<button class='btn btnw bsm' style='border-radius:50px' onclick='resetChk()'> New Check</button></div>";
+}
+function switchTab(t){
+  S.tab=t;
+  var el=document.getElementById("res-items");
+  if(el) el.innerHTML=buildItems();
+  document.querySelectorAll(".rtab").forEach(function(b){b.classList.remove("on");});
+  var tabs=document.querySelectorAll(".rtab");
+  var ids=["q","n","b","s"];
+  for(var i=0;i<tabs.length;i++){if(ids[i]===t) tabs[i].classList.add("on");}
+}
+function buildItems(){
+  if(!S.res) return "";
+  if(S.tab==="s"){
+    return SCHOLS.map(function(s){
+      return "<div class='card' style='margin-bottom:12px;border-left:4px solid #10b981'>"
+        +"<div style='font-weight:800;font-size:15px;margin-bottom:3px'>"+s.name+"</div>"
+        +"<div style='font-size:13.5px;color:#4a4a6a;margin-bottom:10px'>"+s.org+"</div>"
+        +"<div style='display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px'>"
+        +"<span class='bdg bg'> "+s.amount+"</span>"
+        +"<span class='bdg ba'> "+s.deadline+"</span>"
+        +"</div>"
+        +"<button class='btn btng bsm' style='border-radius:50px'>Apply Now</button>"
+        +"</div>";
+    }).join("");
+  }
+  var items=S.res[S.tab]||[];
+  if(!items.length) return "<div style='text-align:center;padding:36px;color:#9090b0;font-size:14px'>No programmes in this category.</div>";
+  return items.map(function(item){
+    var p=item.p,tc=S.tab==="q"?"q":S.tab==="n"?"n":"b";
+    return "<div class='prog "+tc+"'>"
+      +"<div class='pname'>"+p.name+"</div>"
+      +"<div class='pmeta'>"
+      +"<span class='bdg bp'>"+p.uni+"</span>"
+      +"<span class='bdg bgr'>Cut-off: "+p.co+"</span>"
+      +(item.agg?"<span class='bdg "+(item.agg<=p.co?"bg":"br")+"'>Your agg: "+item.agg+"</span>":"")
+      +"</div>"
+      +(S.tab==="q"&&item.passes&&item.passes.length?"<div class='why'>v <strong>Why you qualify:</strong> "+item.passes.join(" . ")+"</div>":"")
+      +(S.tab!=="q"&&item.issues&&item.issues.length?"<div class='iss'>! "+item.issues.join("<br>")+"</div>":"")
+      +(p.career?"<div class='career'><div class='career-lbl'> Career Opportunities</div><div class='career-txt'>"+p.career+"</div></div>":"")
+      +"</div>";
+  }).join("");
+}
+function downloadResult(){
+  if(!S.res) return;
+  var res=S.res;
+  var date=new Date().toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+  var w=window.open("","_blank","width=900,height=700");
+  if(!w){alert("Please allow popups to download your result.");return;}
+  var html='<!DOCTYPE html><html><head><meta charset="UTF-8"/><title>UniPredict Ghana - My Eligibility Result</title>'
+  +'<style>'
+  +'@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap");'
+  +'*{box-sizing:border-box;margin:0;padding:0}'
+  +'body{font-family:Outfit,Arial,sans-serif;background:#f0eeff;color:#1a1a2e;min-height:100vh}'
+  +'.page{max-width:820px;margin:0 auto;padding:30px 20px 60px}'
+  +'.header{background:linear-gradient(135deg,#7C3AED 0%,#EC4899 100%);border-radius:16px;padding:28px 32px;margin-bottom:24px;position:relative;overflow:hidden}'
+  +'.header::before{content:"";position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:rgba(255,255,255,.08);border-radius:50%}'
+  +'.header::after{content:"";position:absolute;bottom:-60px;left:60px;width:220px;height:220px;background:rgba(255,255,255,.05);border-radius:50%}'
+  +'.header-logo{font-size:13px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}'
+  +'.header h1{font-size:26px;font-weight:900;color:#fff;margin-bottom:4px}'
+  +'.header-date{font-size:12px;color:rgba(255,255,255,.7)}'
+  +'.profile-card{background:#fff;border-radius:14px;padding:22px 26px;margin-bottom:20px;box-shadow:0 2px 12px rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.1)}'
+  +'.profile-card h2{font-size:12px;font-weight:700;color:#7C3AED;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}'
+  +'.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}'
+  +'.pfield{background:#f8f5ff;border-radius:8px;padding:10px 14px}'
+  +'.pfield-label{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}'
+  +'.pfield-val{font-size:13px;font-weight:700;color:#1a1a2e}'
+  +'.stats-row{display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:12px;margin-bottom:20px}'
+  +'.agg-card{background:linear-gradient(135deg,#7C3AED,#EC4899);border-radius:14px;padding:18px;text-align:center;color:#fff}'
+  +'.agg-num{font-size:42px;font-weight:900;line-height:1}'
+  +'.agg-lbl{font-size:10px;font-weight:700;opacity:.8;text-transform:uppercase;letter-spacing:1px;margin-top:4px}'
+  +'.stat-card{background:#fff;border-radius:14px;padding:18px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.05)'
+  +';border:1px solid rgba(0,0,0,.06)}'
+  +'.stat-num{font-size:32px;font-weight:900}'
+  +'.stat-num-q{color:#10b981}'
+  +'.stat-num-n{color:#f59e0b}'
+  +'.stat-num-b{color:#ef4444}'
+  +'.stat-lbl{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}'
+  +'.section{margin-bottom:24px}'
+  +'.section-title{display:flex;align-items:center;gap:10px;margin-bottom:12px}'
+  +'.section-title h3{font-size:14px;font-weight:800;color:#1a1a2e}'
+  +'.section-badge{padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700}'
+  +'.sb-q{background:#d1fae5;color:#065f46}'
+  +'.sb-n{background:#fef3c7;color:#92400e}'
+  +'.sb-b{background:#fee2e2;color:#991b1b}'
+  +'.prog-card{background:#fff;border-radius:12px;padding:14px 18px;margin-bottom:8px'
+  +';box-shadow:0 1px 6px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.06);border-left:4px solid #10b981}'
+  +'.prog-card-n{border-left-color:#f59e0b}'
+  +'.prog-card-b{border-left-color:#ef4444}'
+  +'.prog-name{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:6px}'
+  +'.prog-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}'
+  +'.tag{display:inline-flex;padding:2px 9px;border-radius:99px;font-size:10px;font-weight:700}'
+  +'.tag-uni{background:#ede9fe;color:#5b21b6}'
+  +'.tag-co{background:#d1fae5;color:#065f46}'
+  +'.tag-co-n{background:#fef3c7;color:#92400e}'
+  +'.tag-agg{background:#fee2e2;color:#991b1b}'
+  +'.prog-why{font-size:11px;color:#065f46;background:#f0fdf4;border-radius:6px;padding:6px 10px;margin-top:6px}'
+  +'.prog-iss{font-size:11px;color:#92400e;background:#fef9ee;border-radius:6px;padding:6px 10px;margin-top:6px}'
+  +'.footer{background:#fff;border-radius:14px;padding:18px 24px;margin-top:24px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 12px rgba(0,0,0,.05)'
+  +';border:1px solid rgba(0,0,0,.06)}'
+  +'.footer-brand{font-size:14px;font-weight:900;background:linear-gradient(135deg,#7C3AED,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}'
+  +'.footer-info{font-size:11px;color:#94a3b8}'
+  +'.print-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);padding:14px 24px;display:flex;gap:10px;justify-content:center;border-top:1px solid rgba(0,0,0,.08);box-shadow:0 -4px 20px rgba(0,0,0,.08)}'
+  +'.print-btn{background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:Outfit,Arial,sans-serif}'
+  +'.close-btn{background:#f1f5f9;color:#475569;border:none;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:Outfit,Arial,sans-serif}'
+  +'@media print{'
+  +'.print-bar{display:none}'
+  +'body{background:#fff}'
+  +'.page{padding:20px}'
+  +'}'
+  +'</style></head><body>'
+
++’<div class="page">’
+
+// Header
++’<div class="header">’
++’<div class="header-logo">UniPredict Ghana</div>’
++’<h1>My Eligibility Result</h1>’
++’<div class="header-date">Generated on ‘+date+’  |  PREDICT. MATCH. ACHIEVE.</div>’
++’</div>’
+
+// Student Profile
++’<div class="profile-card">’
++’<h2>Student Profile</h2>’
++’<div class="profile-grid">’
++’<div class="pfield"><div class="pfield-label">Track</div><div class="pfield-val">’+S.track+’</div></div>’
++’<div class="pfield"><div class="pfield-label">Elective Subjects</div><div class="pfield-val">’+S.el.join(”, “)+’</div></div>’
++’<div class="pfield"><div class="pfield-label">English Language</div><div class="pfield-val">’+(S.cg.eng||”-”)+’</div></div>’
++’<div class="pfield"><div class="pfield-label">Core Mathematics</div><div class="pfield-val">’+(S.cg.maths||”-”)+’</div></div>’
++’<div class="pfield"><div class="pfield-label">Integrated Science</div><div class="pfield-val">’+(S.cg.sci||”-”)+’</div></div>’
++’<div class="pfield"><div class="pfield-label">Social Studies</div><div class="pfield-val">’+(S.cg.soc||”-”)+’</div></div>’
++’</div></div>’
+
+// Stats
++’<div class="stats-row">’
++’<div class="agg-card"><div class="agg-num">’+(res.agg||”-”)+’</div><div class="agg-lbl">Aggregate</div></div>’
++’<div class="stat-card"><div class="stat-num stat-num-q">’+res.q.length+’</div><div class="stat-lbl">Qualified</div></div>’
++’<div class="stat-card"><div class="stat-num stat-num-n">’+res.n.length+’</div><div class="stat-lbl">Near Miss</div></div>’
++’<div class="stat-card"><div class="stat-num stat-num-b">’+res.b.length+’</div><div class="stat-lbl">Blocked</div></div>’
++’</div>’;
+
+// Qualified
+if(res.q.length){
+html+=’<div class="section">’
++’<div class="section-title"><h3>Programmes You Qualify For</h3><span class="section-badge sb-q">’+res.q.length+’ programmes</span></div>’;
+res.q.forEach(function(item){
+html+=’<div class="prog-card">’
++’<div class="prog-name">’+item.p.name+’</div>’
++’<div class="prog-tags">’
++’<span class="tag tag-uni">’+item.p.uni+’</span>’
++’<span class="tag tag-co">Cut-off: ‘+item.p.co+’</span>’
++’</div>’
++(item.passes&&item.passes.length?’<div class="prog-why">Eligible: ‘+item.passes.join(” | “)+’</div>’:’’)
++’</div>’;
+});
+html+=’</div>’;
+}
+
+// Near miss
+if(res.n.length){
+html+=’<div class="section">’
++’<div class="section-title"><h3>Near Miss - Close to Cut-off</h3><span class="section-badge sb-n">’+res.n.length+’ programmes</span></div>’;
+res.n.slice(0,40).forEach(function(item){
+html+=’<div class="prog-card prog-card-n">’
++’<div class="prog-name">’+item.p.name+’</div>’
++’<div class="prog-tags">’
++’<span class="tag tag-uni">’+item.p.uni+’</span>’
++’<span class="tag tag-co-n">Cut-off: ‘+item.p.co+’</span>’
++(item.agg?’<span class="tag tag-agg">Your agg: ‘+item.agg+’</span>’:’’)
++’</div>’
++(item.issues&&item.issues.length?’<div class="prog-iss">’+item.issues.join(” | “)+’</div>’:’’)
++’</div>’;
+});
+html+=’</div>’;
+}
+
+// Footer
+html+=’<div class="footer">’
++’<div>’
++’<div class="footer-brand">UniPredict Ghana</div>’
++’<div class="footer-info">uni-predict.netlify.app</div>’
++’</div>’
++’<div style="text-align:right">’
++’<div class="footer-info">UniPredictghana@gmail.com</div>’
++’<div class="footer-info">WhatsApp: 0537 889 150</div>’
++’</div>’
++’</div>’
++’</div>’
+
+// Print bar
++’<div class="print-bar">’
++’<button class="print-btn" onclick="window.print()">Save as PDF / Print</button>’
++’<button class="close-btn" onclick="window.close()">Close</button>’
++’</div>’
++’</body></html>’;
+
+w.document.write(html);
+w.document.close();
+}
+
+function resetChk(){S.step=1;S.track=””;S.cg={};S.el=[];S.eg={};S.res=null;renderWiz();showStep(1);}
+
+// ============================================
+// PAYMENT MODAL
+// ============================================
+function openPay(){S.payStep=“plan”;document.getElementById(“pay-modal”).classList.add(“on”);renderModal();}
+function closeModal(){document.getElementById(“pay-modal”).classList.remove(“on”);}
+function renderModal(){
+var el=document.getElementById(“modal-body”);
+if(!el) return;
+if(S.payStep===“plan”){
+el.innerHTML=”<h3>Choose Your Plan</h3>”
++[{id:“basic”,i:””,n:CFG.basic_name+” - GHC”+CFG.price_basic,d:“Check 1 university only”},
+{id:“premium”,i:””,n:CFG.premium_name+” - GHC”+CFG.price_premium,d:“Check all “+UNIS.length+” universities”,pop:true},
+{id:“bundle”,i:””,n:CFG.bundle_name+” - GHC”+CFG.price_bundle,d:“3 checks - best value”}]
+.map(function(p){
+return “<div class=‘prow”+(S.plan===p.id?” on”:””)+”’ onclick=‘S.plan="”+p.id+”";renderModal()’”+(p.pop?” style=‘position:relative’”:””)+”>”
++(p.pop?”<div style='position:absolute;top:-10px;right:12px;background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;font-size:10px;font-weight:800;padding:2px 11px;border-radius:99px'>POPULAR</div>”:””)
++”<div class='pi'>”+p.i+”</div>”
++”<div class='pin'><div class='pname2'>”+p.n+”</div><div class='pdesc'>”+p.d+”</div></div>”
++”<div class='prad'>”+(S.plan===p.id?“v”:””)+”</div></div>”;
+}).join(””)
++”<button class='btn btng bfull blg' style='margin-top:10px' onclick='S.payStep=\"method\";renderModal()'>Continue to Payment -></button>”;
+} else if(S.payStep===“method”){
+var amt=S.plan===“basic”?String(CFG.price_basic):S.plan===“premium”?String(CFG.price_premium):String(CFG.price_bundle);
+el.innerHTML=”<h3>Payment Details</h3>”
++”<p style='font-size:13.5px;color:#4a4a6a;margin-bottom:14px'>Paying GHC”+amt+” for <strong>”+S.plan+”</strong> plan</p>”
++”<div style='background:#f0fdf4;border:1px solid rgba(16,185,129,.2);border-radius:11px;padding:13px;margin-bottom:16px;font-size:14px;color:#166534'>v Paystack handles all payment methods<br><span style="font-size:13px;color:#166534">MTN MoMo . Vodafone Cash . AirtelTigo . Visa . Mastercard</span></div>”
++”<div class='fg'><label class='lbl'>Your Phone Number</label><input class='inp' id='pp' type='tel' placeholder='0XX XXX XXXX' value='"+S.phone+"'/></div>”
++”<div class='fg'><label class='lbl'>Email (for receipt - optional)</label><input class='inp' id='pe' type='email' placeholder='your@email.com' value='"+S.email+"'/></div>”
++”<div style='display:flex;gap:10px'>”
++”<button class='btn btnw bmd' style='min-width:90px' onclick='S.payStep=\"plan\";renderModal()'><- Back</button>”
++”<button class='btn btng blg' style='flex:1' onclick='doPayStep2()'>Pay GHC”+amt+” -></button></div>”
++”<p style='font-size:12px;color:#9090b0;text-align:center;margin-top:12px'> Secured by Paystack . PCI-DSS Certified</p>”;
+} else if(S.payStep===“confirm”){
+var amt2=S.plan===“basic”?String(CFG.price_basic):S.plan===“premium”?String(CFG.price_premium):String(CFG.price_bundle);
+el.innerHTML=”<div style='text-align:center;padding:18px 0'>”
++”<div style='font-size:52px;margin-bottom:16px'></div>”
++”<h3 style='margin-bottom:8px'>Ready to Pay</h3>”
++”<p style='font-size:14px;color:#4a4a6a;margin-bottom:6px'>Plan: <strong>”+S.plan+”</strong> - GHC”+amt2+”</p>”
++”<p style='font-size:13.5px;color:#9090b0;margin-bottom:24px'>You will be redirected to Paystack secure checkout. Supports MTN MoMo, Vodafone Cash, AirtelTigo and Card.</p>”
++”<button class='btn btng bfull blg' onclick='doPay()'>Pay with Paystack -></button>”
++”<p style='font-size:12px;color:#9090b0;margin-top:12px'> Secured by Paystack . PCI-DSS Certified</p></div>”;
+} else if(S.payStep===“done”){
+el.innerHTML=”<div style='text-align:center;padding:24px 0'>”
++”<div style='font-size:60px;margin-bottom:16px'>OK</div>”
++”<h3 style='color:#10b981;margin-bottom:8px'>Payment Confirmed!</h3>”
++”<p style='font-size:14px;color:#4a4a6a;margin-bottom:20px'>Your <strong>”+S.plan+”</strong> plan is now active. Running eligibility analysis…</p>”
++”<div style='width:48px;height:48px;border:4px solid rgba(124,58,237,.15);border-top-color:#7C3AED;border-radius:50%;margin:0 auto;animation:spin .8s linear infinite'></div></div>”;
+setTimeout(function(){closeModal();showStep(6);},2400);
+}
+}
+function doPayStep2(){
+var pp=document.getElementById(“pp”),pe=document.getElementById(“pe”);
+if(pp) S.phone=pp.value;
+if(pe) S.email=pe.value;
+if(!S.phone){alert(“Please enter your phone number.”);return;}
+S.payStep=“confirm”;renderModal();
+}
+function doPay(){
+// Use admin-configured pricing if available, else fallback defaults
+var planData = _PRICING[S.plan]||{};
+var amt = planData.price || (S.plan===“basic”?CFG.price_basic:S.plan===“premium”?CFG.price_premium:CFG.price_bundle); // GHC
+var email = S.email || “student@unipredictghana.com”;
+var phone = S.phone || “”;
+if(typeof PaystackPop===“undefined”){alert(“Payment could not load. Please refresh the page.”);return;}
+if(!_PAYSTACK_KEY){alert(“Payment not configured. Please contact UniPredict Ghana on WhatsApp: 0537 889 150”);return;}
+var handler = PaystackPop.setup({
+key: _PAYSTACK_KEY,
+email: email,
+amount: amt * 100, // convert GHC to pesewas
+currency: “GHS”,
+ref: “UNI-” + Date.now(),
+metadata: { plan: S.plan, phone: phone },
+callback: function(response) {
+// Payment successful
+S.payStep = “done”;
+renderModal();
+// Save payment to Supabase
+fetch(SUPA_URL+”/rest/v1/payments”, {
+method: “POST”,
+headers: {
+“apikey”: SUPA_KEY,
+“Authorization”: “Bearer “ + SUPA_KEY,
+“Content-Type”: “application/json”,
+“Prefer”: “return=representation”
+},
+body: JSON.stringify({
+reference: response.reference,
+plan: S.plan,
+amount: amt * 100,
+currency: “GHS”,
+phone: phone,
+status: “success”,
+gateway_ref: response.reference,
+verified_at: new Date().toISOString()
+})
+}).catch(function(){});
+},
+onClose: function() {
+toast(“Payment cancelled. Try again when ready.”);
+}
+});
+handler.openIframe();
+}
+
+function toast(msg) {
+var el = document.createElement(“div”);
+el.style.cssText = “position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1a1a2e;color:#fff;padding:12px 20px;border-radius:10px;font-size:14px;z-index:9999;border:1px solid rgba(124,58,237,.3)”;
+el.textContent = msg;
+document.body.appendChild(el);
+setTimeout(function(){ el.remove(); }, 3500);
+}
+
+// ============================================
+// UNIVERSITIES
+// ============================================
+function renderUnis(){
+var s=(document.getElementById(“us”)||{}).value||””;
+var t=(document.getElementById(“ut”)||{}).value||””;
+var f=UNIS.filter(function(u){return(u.name+u.loc).toLowerCase().indexOf(s.toLowerCase())>=0&&(!t||u.type===t);});
+var el=document.getElementById(“uni-grid”);
+if(!el) return;
+el.innerHTML=f.map(function(u){
+return “<div class='card' style='cursor:pointer;transition:all .2s' onclick='go(\"checker\")' onmouseover='this.style.transform=\"translateY(-2px)\";this.style.boxShadow=\"0 8px 24px rgba(124,58,237,.12)\"' onmouseout='this.style.transform=\"\";this.style.boxShadow=\"\"'>”
++”<div style='display:flex;gap:12px;align-items:center;margin-bottom:12px'>”
++”<div style='width:46px;height:46px;border-radius:11px;background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Outfit,sans-serif;font-weight:900;font-size:12px;flex-shrink:0;letter-spacing:-.5px'>”+u.code.slice(0,5)+”</div>”
++”<div><div style='font-weight:700;font-size:14.5px;color:#1a1a2e;line-height:1.3'>”+u.name+”</div><div style='font-size:12.5px;color:#9090b0;margin-top:2px'>”+u.loc+”</div></div>”
++”</div>”
++”<span class='bdg bp'>”+u.type+”</span>”
++”</div>”;
+}).join(””);
+}
+
+// ============================================
+// PROGRAMMES
+// ============================================
+function renderProgs(){
+var pu=document.getElementById(“pu”);
+if(pu&&pu.options.length<=1){
+var um={};PROGS.forEach(function(p){um[p.uni]=1;});
+Object.keys(um).forEach(function(u){var o=document.createElement(“option”);o.value=u;o.textContent=u;pu.appendChild(o);});
+}
+var s=(document.getElementById(“ps”)||{}).value||””;
+var u=(document.getElementById(“pu”)||{}).value||””;
+var f=PROGS.filter(function(p){return(!u||p.uni===u)&&(p.name+p.uni).toLowerCase().indexOf(s.toLowerCase())>=0;}).slice(0,100);
+var el=document.getElementById(“prog-list”);
+if(!el) return;
+el.innerHTML=f.map(function(p){
+return “<div class='card' style='margin-bottom:10px'>”
++”<div style='font-weight:700;font-size:15px;color:#1a1a2e;margin-bottom:8px'>”+p.name+”</div>”
++”<div style='display:flex;gap:8px;flex-wrap:wrap;margin-bottom:"+(p.career?"8":"0")+"px'>”
++”<span class='bdg bp'>”+p.uni+”</span><span class='bdg bgr'>Cut-off: “+p.co+”</span></div>”
++(p.career?”<div style='font-size:13px;color:#9090b0;margin-top:4px'> “+p.career+”</div>”:””)
++”</div>”;
+}).join(””)+(f.length===0?”<p style='color:#9090b0;font-size:14px;padding:20px 0'>No programmes found.</p>”:””);
+}
+
+// ============================================
+// CUT-OFFS
+// ============================================
+function renderCO(){
+var cu=document.getElementById(“cu”);
+if(cu&&cu.options.length<=1){
+var um={};PROGS.forEach(function(p){um[p.uni]=1;});
+Object.keys(um).forEach(function(u){var o=document.createElement(“option”);o.value=u;o.textContent=u;cu.appendChild(o);});
+}
+var s=(document.getElementById(“cs”)||{}).value||””;
+var u=(document.getElementById(“cu”)||{}).value||””;
+var f=PROGS.filter(function(p){return(!u||p.uni===u)&&(p.name+p.uni).toLowerCase().indexOf(s.toLowerCase())>=0;}).slice(0,120);
+var el=document.getElementById(“co-body”);
+if(!el) return;
+el.innerHTML=f.map(function(p){
+return “<tr style='border-bottom:1px solid rgba(124,58,237,.06);background:#ffffff'>”
++”<td style='padding:12px 14px;font-weight:600;color:#1a1a2e'>”+p.name+”</td>”
++”<td style='padding:12px 14px;color:#4a4a6a;font-size:13.5px'>”+p.uni+”</td>”
++”<td style='padding:12px 14px;text-align:center'><span class='bdg bp' style='font-size:14px;font-weight:900'>”+p.co+”</span></td>”
++”</tr>”;
+}).join(””);
+}
+
+// ============================================
+// SCHOLARSHIPS
+// ============================================
+function renderSchols(){
+var el=document.getElementById(“schol-list”);
+if(!el) return;
+el.innerHTML=SCHOLS.map(function(s){
+return “<div class='card' style='margin-bottom:14px;border-left:4px solid #10b981'>”
++”<div style='font-weight:800;font-size:16px;color:#1a1a2e;margin-bottom:4px'>”+s.name+”</div>”
++”<div style='font-size:13.5px;color:#4a4a6a;margin-bottom:10px'>”+s.org+”</div>”
++”<div style='display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px'>”
++”<span class='bdg bg'> “+s.amount+”</span>”
++”<span class='bdg ba'> “+s.deadline+”</span>”
++”</div>”
++”<div style='display:flex;gap:10px'>”
++”<button class='btn btng bsm' style='border-radius:50px'>Apply Now</button>”
++”<button class='btn btnw bsm' style='border-radius:50px'> Set Alert</button>”
++”</div></div>”;
+}).join(””);
+}
+
+// ============================================
+// FORMS
+// ============================================
+function renderForms(){
+var el=document.getElementById(“forms-body”);
+if(!el) return;
+el.innerHTML=FORMS.map(function(f){
+return “<tr style='border-bottom:1px solid rgba(124,58,237,.06);background:#ffffff'>”
++”<td style='padding:13px 14px;font-weight:700;color:#1a1a2e'>”+f.uni+”</td>”
++”<td style='padding:13px 14px'><span class='bdg "+(f.status==="Open"?"bg":"bgr")+"'>”+f.status+”</span></td>”
++”<td style='padding:13px 14px;color:#4a4a6a;font-size:13.5px'>”+f.deadline+”</td>”
++”<td style='padding:13px 14px;font-weight:700;color:#1a1a2e'>”+f.fee+”</td>”
++”<td style='padding:13px 14px'>”
++(f.status===“Open”
+?”<button class='btn btng bsm' style='border-radius:50px'>Apply</button>”
+:”<button class='btn btnw bsm' style='border-radius:50px'> Alert</button>”)
++”</td></tr>”;
+}).join(””);
+}
+
+// ============================================
+// NEWS
+// ============================================
+function renderNews(){
+var el=document.getElementById(“news-list”);
+if(!el) return;
+var icons={form:””,cutoff:””,scholarship:””,policy:””};
+el.innerHTML=NEWS.map(function(n){
+return “<div class='card' style='display:flex;gap:14px;margin-bottom:12px;border-left:4px solid "+(n.hot?"#7C3AED":"rgba(124,58,237,.12)")+"'>”
++”<div style='font-size:26px;flex-shrink:0'>”+(icons[n.cat]||””)+”</div>”
++”<div><div style='font-weight:700;font-size:15px;color:#1a1a2e;margin-bottom:5px;line-height:1.4'>”+n.t+”</div>”
++”<div style='font-size:13px;color:#9090b0'>”+n.date+” 2025”+(n.hot?”<span class='bdg bp' style='margin-left:8px;font-size:11px'>Urgent</span>”:””)+”</div>”
++”</div></div>”;
+}).join(””);
+}
+
+// ============================================
+// FAQ
+// ============================================
+function renderFaq(){
+var el=document.getElementById(“faq-list”);
+if(!el) return;
+el.innerHTML=FAQS.map(function(f,i){
+return “<div class='card' style='margin-bottom:10px;overflow:hidden'>”
++”<div style='padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center' onclick='togFaq("+i+")'>”
++”<div style='font-weight:700;font-size:15px;color:#1a1a2e;flex:1;padding-right:12px;line-height:1.4'>”+f.q+”</div>”
++”<div id='fi"+i+"' style='color:#7C3AED;font-size:20px;font-weight:700;flex-shrink:0;line-height:1'>+</div>”
++”</div>”
++”<div id='fa"+i+"' style='display:none;padding:0 20px 16px;font-size:14.5px;color:#4a4a6a;line-height:1.75;border-top:1px solid rgba(124,58,237,.08)'><div style='padding-top:14px'>”+f.a+”</div></div>”
++”</div>”;
+}).join(””);
+}
+function togFaq(i){
+var a=document.getElementById(“fa”+i),ic=document.getElementById(“fi”+i);
+if(!a) return;
+var open=a.style.display===“block”;
+a.style.display=open?“none”:“block”;
+if(ic) ic.textContent=open?”+”:””;
+}
+
+// ============================================
+// CALCULATOR
+// ============================================
+var CG={};
+function buildCalc(){
+var cc=document.getElementById(“calc-core”);
+if(!cc) return;
+var subs=[{k:“cen”,l:“English Language”},{k:“cma”,l:“Core Mathematics”},{k:“csc”,l:“Integrated Science”},{k:“cso”,l:“Social Studies”}];
+cc.innerHTML=subs.map(function(s){
+return “<div style='margin-bottom:16px'><div style='font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:8px'>”+s.l+”</div>”
++”<div class='gbrow'>”+GR.map(function(g){return “<button class='gb"+(CG[s.k]===g?" on":"")+"' onclick='setCG(\""+s.k+"\",\""+g+"\")'>”+g+”</button>”;}).join(””)+”</div></div>”;
+}).join(””);
+buildCalcEls();
+}
+function setCG(k,g){CG[k]=g;updateCalc();buildCalc();}
+function buildCalcEls(){
+var t=(document.getElementById(“ct”)||{}).value||“General Science”;
+var els=TRK[t]?TRK[t].e:[];
+var ce=document.getElementById(“calc-els”);
+if(!ce) return;
+ce.innerHTML=”<div style='font-size:13.5px;font-weight:700;color:#4a4a6a;margin-bottom:12px'>Elective Subjects (select up to 6):</div>”
++els.slice(0,6).map(function(e){
+var k=“el_”+e.replace(/\W+/g,”_”);
+return “<div style='margin-bottom:14px'><div style='font-size:14px;font-weight:600;color:#1a1a2e;margin-bottom:7px'>”+e+”</div>”
++”<div class='gbrow'>”+GR.map(function(g){return “<button class='gb"+(CG[k]===g?" on":"")+"' onclick='setCG(\""+k+"\",\""+g+"\")'>”+g+”</button>”;}).join(””)+”</div></div>”;
+}).join(””);
+updateCalc();
+}
+function updateCalc(){
+var pts=[];
+Object.keys(CG).forEach(function(k){if(CG[k]) pts.push(GP[CG[k]]||9);});
+pts.sort(function(a,b){return a-b;});
+var b6=pts.slice(0,6);
+var res=document.getElementById(“calc-res”);
+if(b6.length<6){if(res) res.style.display=“none”;return;}
+var agg=b6.reduce(function(s,p){return s+p;},0);
+if(res) res.style.display=“block”;
+var d=document.getElementById(“cnum”),l=document.getElementById(“clbl”);
+if(d) d.textContent=agg;
+if(l) l.textContent=agg<=6?“Exceptional - qualifies for any programme”:agg<=9?“Excellent - Medicine, Law, Engineering eligible”:agg<=12?“Very Good - Computer Science, Nursing, Business eligible”:agg<=18?“Good - Most university programmes eligible”:“Below typical minimum - consider NOVDEC resit”;
+}
+
+// ============================================
+// AI CHAT - calls Supabase Edge Function (no API key in frontend)
+// ============================================
+var SUPA_URL=“https://urfqevstrwsrtysbllah.supabase.co”;
+var SUPA_KEY=“eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVyZnFldnN0cndzcnR5c2JsbGFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzNTQ5OTQsImV4cCI6MjEwMDkzMDk5NH0.9TPgghMQdHjqwRm51dEVHJ6O115FPBoYBfZHO_siTYI”;
+
+function renderChat(){
+var el=document.getElementById(“chat-msgs”);
+if(!el) return;
+el.innerHTML=””;
+S.chatMsgs.forEach(function(m){
+var div=document.createElement(“div”);
+div.className=m.r===“ai”?“cai”:“cuser”;
+div.innerHTML=m.t;
+if(m.wa){
+var q=m.q||””;
+var waLink=document.createElement(“a”);
+waLink.href=“https://wa.me/233537889150?text=”+encodeURIComponent(“Hi UniPredict, I have a question: “+q);
+waLink.target=”_blank”;
+waLink.style.cssText=“display:inline-block;margin-top:10px;background:#25D366;color:#fff;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none”;
+waLink.textContent=“Chat on WhatsApp”;
+div.appendChild(document.createElement(“br”));
+div.appendChild(waLink);
+}
+el.appendChild(div);
+});
+el.scrollTop=el.scrollHeight;
+}
+function sendChat(txt){
+var inp=document.getElementById(“chat-inp”);
+var msg=txt||(inp?inp.value.trim():””);
+if(!msg) return;
+if(inp) inp.value=””;
+S.chatMsgs.push({r:“user”,t:msg});
+S.chatMsgs.push({r:“ai”,t:”<em style='color:#9090b0'>Thinking…</em>”});
+renderChat();
+var hist=S.chatMsgs.slice(0,-1).map(function(m){return {role:m.r===“ai”?“assistant”:“user”,content:m.t};});
+// Call Supabase Edge Function (Groq key stored securely server-side)
+fetch(SUPA_URL+”/functions/v1/ai-counsellor”,{
+method:“POST”,
+headers:{“Content-Type”:“application/json”,“Authorization”:“Bearer “+SUPA_KEY},
+body:JSON.stringify({messages:hist})
+}).then(function(r){
+if(!r.ok) return r.text().then(function(t){throw new Error(“HTTP “+r.status+”: “+t);});
+return r.json();
+}).then(function(d){
+var reply = d && d.reply ? d.reply : “Sorry, I could not get a response. Please try again.”;
+S.chatMsgs[S.chatMsgs.length-1]={r:“ai”,t:reply};
+renderChat();
+}).catch(function(err){
+// AI failed - save question to inbox and offer WhatsApp
+var failMsg=“I’m having trouble connecting right now. Your question has been saved and will be answered shortly. You can also reach us directly on WhatsApp for an immediate response.”;
+S.chatMsgs[S.chatMsgs.length-1]={r:“ai”,t:failMsg,wa:true,q:S.chatMsgs[S.chatMsgs.length-2]?S.chatMsgs[S.chatMsgs.length-2].t:””};
+// Save to Supabase ai_inbox for admin to reply
+var lastUserMsg=S.chatMsgs.filter(function(m){return m.r===“user”;}).slice(-1)[0];
+if(lastUserMsg){
+fetch(SUPA_URL+”/rest/v1/ai_inbox”,{
+method:“POST”,
+headers:{“apikey”:SUPA_KEY,“Authorization”:“Bearer “+SUPA_KEY,“Content-Type”:“application/json”,“Prefer”:“return=representation”},
+body:JSON.stringify({question:lastUserMsg.t,user_email:S.user?S.user.email:null,status:“pending”})
+}).catch(function(){});
+}
+renderChat();
+});
+}
+
+// ============================================
+// CONTACT
+// ============================================
+function doContact(){
+var n=(document.getElementById(“cn”)||{}).value;
+var m=(document.getElementById(“cm”)||{}).value;
+if(!n||!m){alert(“Please fill in your name and message.”);return;}
+alert(“Message sent! We will respond within 24 hours.\n\nYou can also WhatsApp us directly on 0537 889 150”);
+document.getElementById(“cn”).value=””;
+document.getElementById(“cm”).value=””;
+}
+
+// ============================================
+// INIT
+// ============================================
+window.onload=function(){
+initTicker();
+renderChat();
+
+// Track visitor
+(function(){
+var SU=“https://urfqevstrwsrtysbllah.supabase.co”;
+var SK=“eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVyZnFldnN0cndzcnR5c2JsbGFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzNTQ5OTQsImV4cCI6MjEwMDkzMDk5NH0.9TPgghMQdHjqwRm51dEVHJ6O115FPBoYBfZHO_siTYI”;
+try {
+fetch(SU+”/rest/v1/visitors”,{
+method:“POST”,
+headers:{“apikey”:SK,“Authorization”:“Bearer “+SK,“Content-Type”:“application/json”},
+body:JSON.stringify({page:window.location.pathname,referrer:document.referrer||””,ua:navigator.userAgent.slice(0,120)})
+}).catch(function(){});
+} catch(e){}
+})();
+
+loadFromSupabase();
+};
+</script>
+
+</body>
+</html>
